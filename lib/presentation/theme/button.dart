@@ -1,22 +1,32 @@
 part of 'theme.dart';
 
+final kBTNTitle = kDF.copyWith(fontSize: 18, fontWeight: FontWeight.bold);
+
 class WSubmitBtn extends StatelessWidget {
-  const WSubmitBtn({Key? key}) : super(key: key);
+  final Widget child;
+  final VoidCallback onPressed;
+
+  const WSubmitBtn({
+    Key? key,
+    required this.child,
+    required this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 55,
+      height: 50,
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: kSpaceM),
       child: ElevatedButton(
-        onPressed: () {},
-        child: Text('data'),
+        child: child,
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           elevation: 0,
+          textStyle: kBTNTitle,
+          primary: kColorAccentBlue,
           shadowColor: Colors.transparent,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(15.0)),
+            borderRadius: BorderRadius.all(Radius.circular(12.0)),
           ),
         ),
       ),

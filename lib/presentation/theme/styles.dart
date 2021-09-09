@@ -23,3 +23,10 @@ final kBody3 = kDF.copyWith(fontSize: 12);
 
 final kCaption1 = kDF.copyWith(fontSize: 14, fontWeight: FontWeight.bold);
 final kCaption2 = kDF.copyWith(fontSize: 14);
+
+/// Form
+/// [TextInput]
+final kTextInput = kDF.copyWith(fontSize: 14, color: kColorGrey5);
+final kTextInputHint = kTextInput.copyWith(color: kColorGrey2);
+final kTextInputLabel = kDF.copyWith(fontSize: 16, fontWeight: FontWeight.w500);
+final kTextInputError = kTextInputHint.copyWith(color: Colors.red);

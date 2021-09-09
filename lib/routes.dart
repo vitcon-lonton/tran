@@ -54,7 +54,7 @@ class Routes {
         break;
     }
 
-    page = OnboardPage();
+    page = SignInPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }

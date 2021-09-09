@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tranme/presentation/feature/login/login_cubit.dart';
+import 'package:tranme/presentation/theme/theme.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -45,19 +46,14 @@ class SignInForm extends StatelessWidget {
           //     ? AutovalidateMode.always
           //     : AutovalidateMode.disabled,
           child: ListView(
-            padding: const EdgeInsets.all(8),
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
             children: [
-              const Text(
-                '📝',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 130),
-              ),
-              const SizedBox(height: 8),
-              TextFormField(
-                decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.email), labelText: 'Email'),
-                autocorrect: false,
-                onChanged: context.read<LoginCubit>().emailChanged,
+              WTextInput(
+                label: 'Email',
+                hintText: 'Email',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.email),
                 validator: (_) => context
                     .read<LoginCubit>()
                     .state
@@ -68,16 +64,21 @@ class SignInForm extends StatelessWidget {
                             orElse: () => null,
                             invalidEmail: (_) => 'Invalid Email'),
                         (_) => null),
+                onChanged: (value) {
+                  context.read<LoginCubit>().emailChanged(value ?? '');
+                },
               ),
-              const SizedBox(height: 8),
-              TextFormField(
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.lock),
-                  labelText: 'Password',
-                ),
-                autocorrect: false,
+              kVSpaceM,
+              WTextInput(
+                // autocorrect: false,
                 obscureText: true,
-                onChanged: context.read<LoginCubit>().pwChanged,
+                label: 'Password',
+                hintText: 'Password',
+                border: OutlineInputBorder(),
+                onChanged: (value) {
+                  context.read<LoginCubit>().emailChanged(value ?? '');
+                },
+                prefixIcon: Icon(Icons.lock),
                 validator: (_) => context
                     .read<LoginCubit>()
                     .state
@@ -89,43 +90,11 @@ class SignInForm extends StatelessWidget {
                             invalidPassword: (_) => 'Short Password'),
                         (_) => null),
               ),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  Expanded(
-                    child: TextButton(
-                      child: const Text('SIGN IN'),
-                      onPressed: () =>
-                          context.read<LoginCubit>().emailSubmitted(),
-                    ),
-                  ),
-                  Expanded(
-                    child: TextButton(
-                      onPressed: () =>
-                          context.read<LoginCubit>().emailSubmitted(),
-                      child: const Text('REGISTER'),
-                    ),
-                  ),
-                ],
+              kVSpaceM,
+              WSubmitBtn(
+                child: const Text('Sign in'),
+                onPressed: context.read<LoginCubit>().emailSubmitted,
               ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.lightBlue, // background
-                  onPrimary: Colors.white, // foreground
-                ),
-                child: const Text(
-                  'SIGN IN WITH GOOGLE',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              // if (state.sta) ...[
-              //   const SizedBox(height: 8),
-              //   const LinearProgressIndicator(),
-              // ]
             ],
           ),
         );
