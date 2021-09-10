@@ -186,13 +186,15 @@ class WTextInput extends StatelessWidget {
 }
 
 class MailInput extends StatelessWidget {
-  const MailInput({Key? key}) : super(key: key);
+  final bool? require;
+
+  const MailInput({Key? key, this.require}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return WTextInput(
-      require: true,
       label: 'Email',
+      require: require ?? true,
       hintText: 'no-reply@3co.network',
       keyboardType: TextInputType.emailAddress,
       prefixIcon: Icon(Icons.person_outline_outlined, size: 18),

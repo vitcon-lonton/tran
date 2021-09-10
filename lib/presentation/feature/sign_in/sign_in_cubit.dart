@@ -3,16 +3,16 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tranme/domain/core/entities.dart';
 import 'package:tranme/domain/core/value_objects.dart';
 
-part 'login_cubit.freezed.dart';
+part 'sign_in_cubit.freezed.dart';
 
 @freezed
-abstract class LoginState with _$LoginState {
-  LoginState._();
-  factory LoginState({
+abstract class SignInState with _$SignInState {
+  SignInState._();
+  factory SignInState({
     Email? email,
     Password? password,
     @Default(AsyncStatus.idle()) AsyncStatus status,
-  }) = _LoginState;
+  }) = _SignInState;
 
   // ValueFailure<String>? get emailError => email?.;
 
@@ -23,26 +23,26 @@ abstract class LoginState with _$LoginState {
     // return (emailError != null && passwordError != null);
   }
 
-  factory LoginState.init() {
-    return LoginState().idle();
+  factory SignInState.init() {
+    return SignInState().idle();
 
     // .copyWith(email: const Email.pure())
     // .copyWith(password: const Password.pure());
   }
 
-  LoginState busy() => copyWith(status: AsyncStatus.busy());
-  LoginState idle() => copyWith(status: AsyncStatus.idle());
-  LoginState failed() => copyWith(status: AsyncStatus.failed());
-  LoginState complete() => copyWith(status: AsyncStatus.complete());
+  SignInState busy() => copyWith(status: AsyncStatus.busy());
+  SignInState idle() => copyWith(status: AsyncStatus.idle());
+  SignInState failed() => copyWith(status: AsyncStatus.failed());
+  SignInState complete() => copyWith(status: AsyncStatus.complete());
 }
 
-class LoginCubit extends Cubit<LoginState> {
+class SignInCubit extends Cubit<SignInState> {
   // final _loginApple = sl<LoginApple>();
   // final _loginEmail = sl<LoginEmail>();
   // final _loginGoogle = sl<LoginGoogle>();
   // final _loginFacebook = sl<LoginFacebook>();
 
-  LoginCubit() : super(LoginState.init());
+  SignInCubit() : super(SignInState.init());
 
   // get _emailParams {
   //   return LoginEmailParams(email: state.email, password: state.password);

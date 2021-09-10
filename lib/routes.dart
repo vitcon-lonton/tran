@@ -1,9 +1,13 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:tranme/presentation/feature/flash/flash_page.dart';
-import 'package:tranme/presentation/feature/login/login_page.dart';
+import 'package:tranme/presentation/feature/sign_in/sign_in_page.dart';
 import 'package:tranme/presentation/feature/onboard/onboard_page.dart';
 import 'package:tranme/presentation/feature/sign_up/sign_up_page.dart';
 import 'package:tranme/presentation/feature/verify/verify_page.dart';
+
+import 'presentation/feature/profile/profile_page.dart';
 
 class Routes {
   Routes._();
@@ -19,6 +23,7 @@ class Routes {
   static const reset_pw = '/reset_pw';
   static const forgot_pw = '/forgot_pw';
   static const onboard = '/onboard';
+  static const profile = '/profile';
 
   static Route onGenerateRoute(RouteSettings? settings) {
     final args = settings!.arguments;
@@ -39,7 +44,7 @@ class Routes {
         page = SignInPage();
         break;
       case register:
-        page = SignInPage();
+        page = SignUpPage();
         break;
       case reset_pw:
         page = SignInPage();
@@ -50,13 +55,16 @@ class Routes {
       case onboard:
         page = OnboardPage();
         break;
+      case profile:
+        page = ProfilePage();
+        break;
 
       default:
         page = FlashPage();
         break;
     }
 
-    page = VerifyPage();
+    page = SignInPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }
