@@ -11,12 +11,23 @@ class Background extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         Positioned(
-          top: 0,
           left: 0,
+          top: -20,
           child: Image.asset('assets/images/bg.png', fit: BoxFit.cover),
         ),
         child,
       ],
     );
+  }
+}
+
+class ScaffoldBG extends StatelessWidget {
+  final Widget body;
+
+  const ScaffoldBG({Key? key, required this.body}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Background(child: body));
   }
 }

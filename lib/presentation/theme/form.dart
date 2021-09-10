@@ -2,7 +2,8 @@ part of 'theme.dart';
 
 final kIconError = Icon(Icons.error);
 final kInputBorderRadius = BorderRadius.circular(12);
-final kBorderSide = BorderSide(width: 0.2, color: kColorGrey2);
+// final kBorderSide = BorderSide(width: 0.2, color: kColorGrey2);
+final kBorderSide = BorderSide(width: 1.20, color: Color(0xffd8d8d8));
 final kIconTheme = IconThemeData(size: 18);
 final kIconErrorTheme = kIconTheme.copyWith(color: kColorError);
 
@@ -119,20 +120,20 @@ class WTextInput extends StatelessWidget {
     Widget effectiveSuffixIcon = suffixIcon ?? kSpaceZero;
 
     if (label != null) {
-      effectiveLabelText = Row(
-        children: [
-          Text(label ?? '', style: kTextInputLabel.merge(labelStyle)),
-          if (require)
-            Text('*', style: TextStyle(color: requireColor ?? kColorError)),
-        ],
+      effectiveLabelText = DefaultTextStyle(
+        style: kTextInputLabel.merge(labelStyle),
+        child: Row(
+          children: [if (label != null) Text(label!), if (require) Text(' *')],
+        ),
       );
     }
 
     // Error status, error icon, error text
     if (isError) {
       inputBorder = kInputTheme.errorBorder ?? kErrorBorder;
-      effectiveSuffixIcon =
-          IconTheme(data: kIconErrorTheme, child: suffixIcon ?? kIconError);
+      // effectiveSuffixIcon =
+      //     IconTheme(data: kIconErrorTheme, child: suffixIcon ?? kIconError);
+      effectiveSuffixIcon = suffixIcon ?? kIconError;
       effectiveErrorText =
           Text(errorText!, style: kTextInputError.merge(errorStyle));
     }
@@ -180,6 +181,41 @@ class WTextInput extends StatelessWidget {
         ),
         if (isError) ...[kVSpaceXS, effectiveErrorText]
       ],
+    );
+  }
+}
+
+class MailInput extends StatelessWidget {
+  const MailInput({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return WTextInput(
+      require: true,
+      label: 'Email',
+      hintText: 'no-reply@3co.network',
+      keyboardType: TextInputType.emailAddress,
+      prefixIcon: Icon(Icons.person_outline_outlined, size: 18),
+      onChanged: (value) {},
+    );
+  }
+}
+
+class PasswordInput extends StatelessWidget {
+  const PasswordInput({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return WTextInput(
+      require: true,
+      obscureText: true,
+      label: 'Password',
+      hintText: 'Password',
+      // autocorrect: false,
+      errorText: 'Password wrong',
+      prefixIcon: Icon(Icons.enhanced_encryption, size: 18),
+      suffixIcon: Icon(Icons.visibility_off_outlined, size: 18),
+      onChanged: (value) {},
     );
   }
 }

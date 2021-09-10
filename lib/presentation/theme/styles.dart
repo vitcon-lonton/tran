@@ -1,7 +1,7 @@
 part of 'theme.dart';
 
 const kFontName = 'roboto';
-const kDF = TextStyle(fontFamily: kFontName);
+const kDF = TextStyle(fontFamily: kFontName, color: Colors.black);
 
 final kHeadline1 = kDF.copyWith(fontSize: 22, fontWeight: FontWeight.w500);
 final kHeadline2 = kDF.copyWith(fontSize: 18, fontWeight: FontWeight.w500);

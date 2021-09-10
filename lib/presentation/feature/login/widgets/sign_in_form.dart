@@ -45,15 +45,13 @@ class SignInForm extends StatelessWidget {
           // autovalidateMode: state.showErrorMessages
           //     ? AutovalidateMode.always
           //     : AutovalidateMode.disabled,
-          child: ListView(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+          child: Column(
             children: [
               WTextInput(
+                require: true,
                 label: 'Email',
-                hintText: 'Email',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.email),
+                hintText: 'no-reply@3co.network',
+                prefixIcon: Icon(Icons.person_outline_outlined, size: 18),
                 validator: (_) => context
                     .read<LoginCubit>()
                     .state
@@ -70,15 +68,16 @@ class SignInForm extends StatelessWidget {
               ),
               kVSpaceM,
               WTextInput(
-                // autocorrect: false,
                 obscureText: true,
                 label: 'Password',
                 hintText: 'Password',
-                border: OutlineInputBorder(),
+                // autocorrect: false,
+                errorText: 'Password wrong',
+                prefixIcon: Icon(Icons.lock, size: 18),
+                suffixIcon: Icon(Icons.visibility_off_outlined, size: 18),
                 onChanged: (value) {
                   context.read<LoginCubit>().emailChanged(value ?? '');
                 },
-                prefixIcon: Icon(Icons.lock),
                 validator: (_) => context
                     .read<LoginCubit>()
                     .state
@@ -90,7 +89,9 @@ class SignInForm extends StatelessWidget {
                             invalidPassword: (_) => 'Short Password'),
                         (_) => null),
               ),
-              kVSpaceM,
+              kVSpaceXS,
+              kVSpaceXXL,
+              kVSpaceXS,
               WSubmitBtn(
                 child: const Text('Sign in'),
                 onPressed: context.read<LoginCubit>().emailSubmitted,

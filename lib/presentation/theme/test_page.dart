@@ -10,11 +10,7 @@ class TestPage extends StatelessWidget {
           child: Column(
             children: [
               kVSpaceM,
-              SafeArea(
-                child: Row(
-                  children: [const Spacer(), Text('SIGN IN', style: kTitle1)],
-                ),
-              ),
+              WHeader1('SIGN IN'),
               kVSpaceM,
               WTextInput(
                 require: true,

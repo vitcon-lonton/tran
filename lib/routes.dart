@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tranme/presentation/feature/flash/flash_page.dart';
 import 'package:tranme/presentation/feature/login/login_page.dart';
 import 'package:tranme/presentation/feature/onboard/onboard_page.dart';
+import 'package:tranme/presentation/feature/sign_up/sign_up_page.dart';
+import 'package:tranme/presentation/feature/verify/verify_page.dart';
 
 class Routes {
   Routes._();
@@ -54,7 +56,7 @@ class Routes {
         break;
     }
 
-    page = SignInPage();
+    page = VerifyPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }

@@ -23,7 +23,7 @@ class WSubmitBtn extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           elevation: 0,
           textStyle: kBTNTitle,
-          primary: kColorAccentBlue,
+          // primary: kColorAccentBlue,
           shadowColor: Colors.transparent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(12.0)),
