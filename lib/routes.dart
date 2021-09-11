@@ -1,12 +1,14 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:tranme/presentation/feature/events/events.dart';
 import 'package:tranme/presentation/feature/flash/flash_page.dart';
 import 'package:tranme/presentation/feature/sign_in/sign_in_page.dart';
 import 'package:tranme/presentation/feature/onboard/onboard_page.dart';
 import 'package:tranme/presentation/feature/sign_up/sign_up_page.dart';
 import 'package:tranme/presentation/feature/verify/verify_page.dart';
 
+import 'presentation/feature/activity/activity.dart';
 import 'presentation/feature/profile/profile_page.dart';
 
 class Routes {
@@ -64,7 +66,8 @@ class Routes {
         break;
     }
 
-    page = SignInPage();
+    page = EventsPage();
+    // page = ActivityPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }

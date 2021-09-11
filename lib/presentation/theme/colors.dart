@@ -8,8 +8,12 @@ const kColorGrey4 = Color(0xFF92929D);
 const kColorGrey5 = Color(0xFF979797);
 
 const kColorBlack = Colors.black;
-const kColorPrimary = Colors.black;
+const kColorPrimary = Color(0xFF244495);
 const kColorSecondary = Colors.red;
 const kColorAccentBlue = Color(0xFF244495);
 
 const kColorError = Colors.red;
+const kColorRed2 = Color(0xFFF66268);
+
+const kColorGreen = Color(0xFF27AE60);
+const kColorOrange = Color(0xFFF2994A);

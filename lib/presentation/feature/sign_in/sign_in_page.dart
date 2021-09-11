@@ -2,9 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_font_icons/flutter_font_icons.dart';
-import 'package:flutter_signin_button/button_list.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:tranme/presentation/theme/theme.dart';
 import 'package:tranme/routes.dart';
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smart_select/smart_select.dart';
 
+part 'app_bar.dart';
 part 'assets.dart';
 part 'background.dart';
 part 'button.dart';

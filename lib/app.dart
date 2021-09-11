@@ -13,14 +13,16 @@ class MyApp extends StatelessWidget {
       // home: VerifyPage(),
       // home: TestPage(),
       title: 'Tran ME',
+      // showPerformanceOverlay: true,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Routes.onGenerateRoute,
       theme: ThemeData.light().copyWith(
+        tabBarTheme: kTabBarTheme,
         primaryColor: kColorAccentBlue,
         primaryColorLight: kColorAccentBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        colorScheme: ColorScheme.light(
-            primary: kColorAccentBlue, secondary: kColorAccentBlue),
+        colorScheme:
+            ColorScheme.light(primary: kColorPrimary, secondary: kColorPrimary),
       ),
     );
   }

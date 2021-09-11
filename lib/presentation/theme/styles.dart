@@ -30,3 +30,15 @@ final kTextInput = kDF.copyWith(fontSize: 14, color: kColorGrey5);
 final kTextInputHint = kTextInput.copyWith(color: kColorGrey2);
 final kTextInputLabel = kDF.copyWith(fontSize: 16, fontWeight: FontWeight.w500);
 final kTextInputError = kTextInputHint.copyWith(color: Colors.red);
+
+final kTabBarTheme = TabBarTheme(
+  labelColor: kTitleMedium.color,
+  unselectedLabelColor: kColorGrey2,
+  labelStyle: kTitleMedium.copyWith(fontSize: 18),
+  unselectedLabelStyle: kTitleMedium.copyWith(fontSize: 18),
+  indicator: BoxDecoration(
+    border: Border(
+      bottom: BorderSide(color: kColorPrimary, width: 2),
+    ),
+  ),
+);

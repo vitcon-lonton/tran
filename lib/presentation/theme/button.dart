@@ -5,11 +5,13 @@ final kBTNTitle = kDF.copyWith(fontSize: 18, fontWeight: FontWeight.bold);
 class WSubmitBtn extends StatelessWidget {
   final Widget child;
   final VoidCallback onPressed;
+  final BorderRadius? radius;
 
   const WSubmitBtn({
     Key? key,
     required this.child,
     required this.onPressed,
+    this.radius,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class WSubmitBtn extends StatelessWidget {
           // primary: kColorAccentBlue,
           shadowColor: Colors.transparent,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12.0)),
+            borderRadius: radius ?? BorderRadius.all(Radius.circular(12.0)),
           ),
         ),
       ),
