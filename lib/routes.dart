@@ -30,6 +30,7 @@ class Routes {
   static Route onGenerateRoute(RouteSettings? settings) {
     final args = settings!.arguments;
     Widget page;
+    print('-- onGenerateRoute(RouteSettings? settings) --ARGS--');
     print(args);
 
     switch (settings.name) {
@@ -66,8 +67,8 @@ class Routes {
         break;
     }
 
+    page = ActivityPage();
     page = EventsPage();
-    // page = ActivityPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }

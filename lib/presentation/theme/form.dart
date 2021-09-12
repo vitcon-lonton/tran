@@ -3,12 +3,12 @@ part of 'theme.dart';
 final kIconError = Icon(Icons.error);
 final kInputBorderRadius = BorderRadius.circular(12);
 // final kBorderSide = BorderSide(width: 0.2, color: kColorGrey2);
-final kBorderSide = BorderSide(width: 1.20, color: Color(0xffd8d8d8));
 final kIconTheme = IconThemeData(size: 18);
 final kIconErrorTheme = kIconTheme.copyWith(color: kColorError);
 
 final kInputBorder = OutlineInputBorder(
-    borderRadius: kInputBorderRadius, borderSide: kBorderSide);
+    borderRadius: kInputBorderRadius,
+    borderSide: BorderSide(width: 1.20, color: Color(0xffd8d8d8)));
 final kFocusedBorder = kInputBorder.copyWith();
 final kEnabledBorder = kInputBorder.copyWith();
 final kDisabledBorder = kInputBorder.copyWith();

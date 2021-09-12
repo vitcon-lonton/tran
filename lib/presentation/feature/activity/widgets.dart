@@ -1,8 +1,5 @@
 part of 'activity.dart';
 
-final _kBorderRadius = BorderRadius.circular(12);
-final _kBorder = Border.all(width: 0.6, color: Color(0xffF0EEEE));
-
 enum ActivityType { walking, cycling, vehicle }
 
 enum ActivityStatus { none, running, process }
@@ -70,7 +67,7 @@ class SessionActivity extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: kSpaceS, horizontal: kSpaceS),
       decoration: BoxDecoration(
-        borderRadius: _kBorderRadius,
+        borderRadius: kBorderRadius,
         color: Theme.of(context).primaryColor,
       ),
       child: DefaultTextStyle(
@@ -153,7 +150,7 @@ class _ActivitySelectorState extends State<ActivitySelector> {
         style: TextButton.styleFrom(
           padding: EdgeInsets.fromLTRB(10, 12, 10, 12),
           backgroundColor: active ? kColorGreen : kColorRed2,
-          shape: RoundedRectangleBorder(borderRadius: _kBorderRadius),
+          shape: RoundedRectangleBorder(borderRadius: kBorderRadius),
         ),
         child: IconTheme(
           data: IconThemeData(size: 36, color: Colors.white),
@@ -228,9 +225,9 @@ class _Wrapper extends StatelessWidget {
       child: child,
       padding: EdgeInsets.symmetric(vertical: kSpaceL, horizontal: kSpaceM),
       decoration: BoxDecoration(
-        border: _kBorder,
         color: Colors.white,
-        borderRadius: _kBorderRadius,
+        borderRadius: kBorderRadius,
+        border: Border.fromBorderSide(kBorderSide),
       ),
     );
   }
@@ -250,7 +247,7 @@ class _Column extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title,
-              style: kTitleMedium.copyWith(fontSize: 14, color: kColorPrimary)),
+              style: kTitleBold.copyWith(fontSize: 14, color: kColorPrimary)),
           ...?values
               ?.map((value) => [kVSpaceXXS, Text(value)])
               .expand((e) => e)
@@ -285,7 +282,7 @@ class WeeklyActivity extends StatelessWidget {
       Column(
         children: [
           DefaultTextStyle(
-            style: kTitleMedium.copyWith(color: kColorPrimary, fontSize: 14),
+            style: kTitleBold.copyWith(color: kColorPrimary, fontSize: 14),
             child: Row(
               children: [
                 Text('Mon'),
@@ -456,14 +453,14 @@ class WarningBox extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: kSpaceXXL),
       decoration: BoxDecoration(
-        border: _kBorder,
         color: Color(0xffFFD04C),
-        borderRadius: _kBorderRadius,
+        borderRadius: kBorderRadius,
+        border: Border.fromBorderSide(kBorderSide.copyWith(width: 0.6)),
       ),
       child: Column(
         children: [
           kVSpaceL,
-          Icon(Icons.car_rental_sharp, size: 30),
+          kIcCar,
           kVSpaceL,
           Text('Warning!'),
           kVSpaceXS,
@@ -492,46 +489,47 @@ class PlottingForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Color.fromRGBO(222, 238, 253, 0.8),
-      padding: EdgeInsets.symmetric(horizontal: kSpaceM),
-      child: Form(
-        child: Column(
-          children: [
-            kVSpaceXL,
-            FlutterLogo(size: 40),
-            kVSpaceXL,
-            WTextInput(
-              label: 'Street name',
-              onChanged: (value) {},
-            ),
-            kVSpaceXS,
-            WTextInput(
-              label: 'Postcode/ZipCode ',
-              onChanged: (value) {},
-            ),
-            kVSpaceL,
-            WTextInput(
-              label: 'Latitude',
-              onChanged: (value) {},
-            ),
-            kVSpaceXS,
-            WTextInput(
-              label: 'Longitude',
-              onChanged: (value) {},
-            ),
-            kVSpaceXXL,
-            Container(
-              height: 48,
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: kSpaceL),
-              child: WSubmitBtn(
-                onPressed: () {},
-                child: Text('Submit'),
+    return Background.gradient(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: kSpaceM),
+        child: Form(
+          child: Column(
+            children: [
+              kVSpaceXL,
+              kImgRedbelly,
+              kVSpaceXL,
+              WTextInput(
+                label: 'Street name',
+                onChanged: (value) {},
               ),
-            ),
-            kVSpaceXL,
-          ],
+              kVSpaceXS,
+              WTextInput(
+                label: 'Postcode/ZipCode ',
+                onChanged: (value) {},
+              ),
+              kVSpaceL,
+              WTextInput(
+                label: 'Latitude',
+                onChanged: (value) {},
+              ),
+              kVSpaceXS,
+              WTextInput(
+                label: 'Longitude',
+                onChanged: (value) {},
+              ),
+              kVSpaceXXL,
+              Container(
+                height: 48,
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(horizontal: kSpaceL),
+                child: WSubmitBtn(
+                  onPressed: () {},
+                  child: Text('Submit'),
+                ),
+              ),
+              kVSpaceXL,
+            ],
+          ),
         ),
       ),
     );

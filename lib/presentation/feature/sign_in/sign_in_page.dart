@@ -37,22 +37,22 @@ class SignInPage extends StatelessWidget {
                   Separator(),
                   kVSpaceL,
                   WSIIconButton(
+                    icon: kIcFB,
                     onPressed: () {},
-                    icon: kIconFB,
                     text: 'SIGN IN with Facebook',
                   ),
                   kVSpaceM,
                   WSIIconButton(
+                    icon: kIcGoogle,
                     onPressed: () {},
-                    icon: kIconGoogle,
                     text: 'SIGN IN with Google',
                     // icon: Icon(Icons.facebook),
                   ),
                   kVSpaceM,
                   if (Platform.isIOS) ...[
                     WSIIconButton(
+                      icon: kIcApple,
                       onPressed: () {},
-                      icon: kIconApple,
                       text: 'SIGN IN with Apple ID',
                     ),
                     kVSpaceS,

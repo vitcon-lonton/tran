@@ -9,18 +9,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // home: TestForm(),
-      // home: VerifyPage(),
-      // home: TestPage(),
       title: 'Tran ME',
       // showPerformanceOverlay: true,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Routes.onGenerateRoute,
-      theme: ThemeData.light().copyWith(
+      theme: ThemeData(
+        fontFamily: kFontName,
         tabBarTheme: kTabBarTheme,
+        // brightness: Brightness.light,
+        dividerColor: kColorGrey3,
         primaryColor: kColorAccentBlue,
         primaryColorLight: kColorAccentBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: TextTheme(),
         colorScheme:
             ColorScheme.light(primary: kColorPrimary, secondary: kColorPrimary),
       ),

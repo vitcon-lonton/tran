@@ -1,7 +1,5 @@
 part of 'theme.dart';
 
-final kBTNTitle = kDF.copyWith(fontSize: 18, fontWeight: FontWeight.bold);
-
 class WSubmitBtn extends StatelessWidget {
   final Widget child;
   final VoidCallback onPressed;
