@@ -1,13 +1,4 @@
-import 'dart:io';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tranme/presentation/theme/theme.dart';
-import 'package:tranme/routes.dart';
-
-import 'sign_in_cubit.dart';
-import 'widgets/buttons.dart';
-import 'widgets/sign_in_form.dart';
+part of 'sign_in.dart';
 
 class SignInPage extends StatelessWidget {
   Widget padding(Widget child) {

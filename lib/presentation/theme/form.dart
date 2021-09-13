@@ -204,16 +204,18 @@ class MailInput extends StatelessWidget {
 }
 
 class PasswordInput extends StatelessWidget {
-  const PasswordInput({Key? key}) : super(key: key);
+  final bool? require;
+
+  const PasswordInput({Key? key, this.require}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return WTextInput(
-      require: true,
       obscureText: true,
       label: 'Password',
       hintText: 'Password',
       // autocorrect: false,
+      require: require ?? true,
       errorText: 'Password wrong',
       prefixIcon: Icon(Icons.enhanced_encryption, size: 18),
       suffixIcon: Icon(Icons.visibility_off_outlined, size: 18),

@@ -1,9 +1,4 @@
-import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tranme/domain/core/entities.dart';
-import 'package:tranme/domain/core/value_objects.dart';
-
-part 'sign_in_cubit.freezed.dart';
+part of 'sign_in.dart';
 
 @freezed
 abstract class SignInState with _$SignInState {

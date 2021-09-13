@@ -1,15 +1,19 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:tranme/presentation/feature/events/events.dart';
-import 'package:tranme/presentation/feature/flash/flash_page.dart';
-import 'package:tranme/presentation/feature/sign_in/sign_in_page.dart';
-import 'package:tranme/presentation/feature/onboard/onboard_page.dart';
-import 'package:tranme/presentation/feature/sign_up/sign_up_page.dart';
-import 'package:tranme/presentation/feature/verify/verify_page.dart';
 
 import 'presentation/feature/activity/activity.dart';
-import 'presentation/feature/profile/profile_page.dart';
+import 'presentation/feature/events/events.dart';
+import 'presentation/feature/flash/flash.dart';
+import 'presentation/feature/news/news.dart';
+import 'presentation/feature/notification/notification.dart';
+import 'presentation/feature/onboard/onboard.dart';
+import 'presentation/feature/profile/profile.dart';
+import 'presentation/feature/race/race.dart';
+import 'presentation/feature/settings/settings.dart';
+import 'presentation/feature/sign_in/sign_in.dart';
+import 'presentation/feature/sign_up/sign_up.dart';
+import 'presentation/feature/verify/verify.dart';
 
 class Routes {
   Routes._();
@@ -69,6 +73,18 @@ class Routes {
 
     page = ActivityPage();
     page = EventsPage();
+    page = RacePage();
+    page = RaceDetailPage();
+    page = NewsPage();
+    page = NotificationPage();
+    page = SettingsPage();
+    page = UserProfilePage();
+    page = ProfileQRCodePage();
+    page = EditProfilePage();
+    page = ResetPWPage();
+    page = ChangePWPage();
+    page = AddFriendForm();
+    page = ConfirmAddFriendForm();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }

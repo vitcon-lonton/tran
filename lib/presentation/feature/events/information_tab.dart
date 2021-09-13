@@ -3,13 +3,14 @@ part of 'events.dart';
 class InformationTab extends StatelessWidget {
   const InformationTab({Key? key}) : super(key: key);
 
-  Widget item(String text, {BorderRadius? radius}) {
+  Widget item(String text, {BorderRadius? radius, EdgeInsets? padding}) {
     return ListTile(
-      trailing: Icon(Icons.keyboard_arrow_right_sharp),
-      shape: RoundedRectangleBorder(borderRadius: kBorderRadius),
-      title: Text(text, style: kBodyMedium.copyWith(fontSize: 14)),
       onTap: () {},
-      // contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+      contentPadding: padding,
+      trailing: Icon(Icons.keyboard_arrow_right_sharp),
+      title: Text(text, style: kBodyMedium.copyWith(fontSize: 14)),
+      shape: RoundedRectangleBorder(
+          borderRadius: radius ?? BorderRadius.zero, side: BorderSide.none),
     );
   }
 
@@ -19,30 +20,39 @@ class InformationTab extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: kSpaceM),
       child: Column(
         children: [
-          kVSpaceL,
-          ClipRRect(
-            borderRadius: kBorderRadius,
-            child: Ink(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: kBorderRadius,
-                border: Border.fromBorderSide(kBorderSide),
-              ),
-              child: Column(
-                children: [
-                  const Divider(height: 0),
-                  item('Create Team'),
-                  const Divider(height: 0),
-                  item('Create Membership'),
-                  const Divider(height: 0),
-                  item('Add Member'),
-                  const Divider(height: 0),
-                  item('Create League'),
-                  const Divider(height: 0),
-                  item('Manage Members'),
-                  const Divider(height: 0),
-                ],
-              ),
+          kVSpaceXXL,
+          Ink(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: kBorderRadius,
+              border: Border.fromBorderSide(kBorderSide),
+            ),
+            child: Column(
+              children: [
+                item(
+                  'Create Team',
+                  radius: kBorderRadius.copyWith(
+                      bottomLeft: Radius.zero, bottomRight: Radius.zero),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ).copyWith(top: kSpaceXS),
+                ),
+                const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceL),
+                item('Create Membership', radius: BorderRadius.zero),
+                const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceL),
+                item('Add Member', radius: BorderRadius.zero),
+                const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceL),
+                item('Create League', radius: BorderRadius.zero),
+                const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceL),
+                item(
+                  'Manage Members',
+                  radius: kBorderRadius.copyWith(
+                      topLeft: Radius.zero, topRight: Radius.zero),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ).copyWith(bottom: kSpaceXS),
+                ),
+              ],
             ),
           ),
           kVSpaceL,

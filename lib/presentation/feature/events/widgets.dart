@@ -1,35 +1,5 @@
 part of 'events.dart';
 
-class EventsAB extends StatelessWidget implements PreferredSizeWidget {
-  final PreferredSizeWidget? bottom;
-
-  const EventsAB({Key? key, this.bottom}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      bottom: bottom,
-      centerTitle: false,
-      title: Text('Events'),
-      backgroundColor: Colors.transparent,
-      iconTheme: IconThemeData.fallback(),
-      titleTextStyle:
-          kTitle1.copyWith(fontSize: 28, fontWeight: FontWeight.w700),
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.notifications_none_rounded),
-        )
-      ],
-    );
-  }
-
-  @override
-  Size get preferredSize =>
-      Size.fromHeight(kToolbarHeight + (bottom?.preferredSize.height ?? 0.0));
-}
-
 class EventTile extends StatelessWidget {
   final int index;
 
@@ -44,7 +14,7 @@ class EventTile extends StatelessWidget {
         child: Row(
           children: [
             kHSpaceXXS,
-            Text('1',
+            Text('$index',
                 style: kBodyMedium.copyWith(fontSize: 14, color: primaryColor)),
             kHSpaceXXS,
             Flexible(

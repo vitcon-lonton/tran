@@ -15,7 +15,7 @@ class WSubmitBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 48,
       width: double.infinity,
       child: ElevatedButton(
         child: child,

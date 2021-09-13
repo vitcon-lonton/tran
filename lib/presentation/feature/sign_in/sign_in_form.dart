@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:tranme/presentation/theme/theme.dart';
-import 'package:tranme/presentation/feature/sign_in/sign_in_cubit.dart';
+part of 'sign_in.dart';
 
 class SignInForm extends StatelessWidget {
   Widget padding(Widget child) {

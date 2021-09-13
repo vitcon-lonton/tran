@@ -33,12 +33,60 @@ class Background extends StatelessWidget {
 }
 
 class ScaffoldBG extends StatelessWidget {
+  final Key? key;
   final Widget body;
+  final bool gradient;
+  final PreferredSizeWidget? appBar;
+  final Widget? bottomNavigationBar;
 
-  const ScaffoldBG({Key? key, required this.body}) : super(key: key);
+  const ScaffoldBG.raw({
+    this.key,
+    required this.body,
+    this.appBar,
+    this.gradient = false,
+    this.bottomNavigationBar,
+  }) : super(key: key);
+
+  factory ScaffoldBG(
+      {Key? key,
+      required Widget body,
+      PreferredSizeWidget? appBar,
+      Widget? bottomNavigationBar}) {
+    return ScaffoldBG.raw(
+      key: key,
+      body: body,
+      appBar: appBar,
+      gradient: false,
+      bottomNavigationBar: bottomNavigationBar,
+    );
+  }
+
+  factory ScaffoldBG.gradient(
+      {Key? key,
+      required Widget body,
+      PreferredSizeWidget? appBar,
+      Widget? bottomNavigationBar}) {
+    return ScaffoldBG.raw(
+      key: key,
+      body: body,
+      appBar: appBar,
+      gradient: true,
+      bottomNavigationBar: bottomNavigationBar,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Background(child: body));
+    final scaffold = Scaffold(
+        body: body,
+        appBar: appBar,
+        backgroundColor: Colors.transparent,
+        bottomNavigationBar: bottomNavigationBar);
+
+    return Material(
+      child: !gradient
+          ? Background(child: scaffold)
+          : Background.gradient(child: scaffold),
+    );
   }
 }

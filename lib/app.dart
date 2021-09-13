@@ -22,6 +22,12 @@ class MyApp extends StatelessWidget {
         primaryColorLight: kColorAccentBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(),
+        appBarTheme: AppBarTheme(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          iconTheme: IconThemeData.fallback(),
+          titleTextStyle: kTitleBold.copyWith(fontSize: 18),
+        ),
         colorScheme:
             ColorScheme.light(primary: kColorPrimary, secondary: kColorPrimary),
       ),

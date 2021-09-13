@@ -9,7 +9,7 @@ class EventsPage extends StatelessWidget {
       length: 2,
       initialIndex: 1,
       child: Scaffold(
-        appBar: EventsAB(bottom: _TabBar()),
+        appBar: TabHeader(bottom: _TabBar(), title: Text('Events')),
         body: TabBarView(
           children: [StandingTab(), InformationTab()],
         ),

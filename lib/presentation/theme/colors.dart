@@ -7,6 +7,8 @@ const kColorGrey2 = Color(0xffD9D9D9);
 const kColorGrey3 = Color(0xffF0EEEE);
 const kColorGrey4 = Color(0xff92929D);
 const kColorGrey5 = Color(0xff979797);
+const kColorGrey6 = Color(0xff6e6e6e);
+const kColorGrey7 = Color(0xffFAFAFA);
 
 const kColorBlack = Colors.black;
 const kColorPrimary = Color(0xff244495);
@@ -20,5 +22,6 @@ const kColorGreen = Color(0xff27AE60);
 const kColorOrange = Color(0xffF2994A);
 
 extension ColorsExt on StatelessWidget {
+  Color get onPrimary => Colors.white;
   Color get primaryColor => kColorPrimary;
 }

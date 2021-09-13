@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 
 import 'package:tranme/presentation/theme/theme.dart';
 
-part 'events_page.dart';
-part 'information_tab.dart';
-part 'standing_tab.dart';
+part 'race_detail_page.dart';
+part 'race_page.dart';
 part 'widgets.dart';

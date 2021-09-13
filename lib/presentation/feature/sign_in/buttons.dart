@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:tranme/presentation/theme/theme.dart';
+part of 'sign_in.dart';
 
 class WSIIconButton extends StatelessWidget {
   final Widget icon;
@@ -34,19 +33,6 @@ class WSIIconButton extends StatelessWidget {
           SizedBox.fromSize(size: Size.square(50)),
         ],
       ),
-    );
-  }
-}
-
-class WLoginFBButton extends StatelessWidget {
-  const WLoginFBButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton.icon(
-      onPressed: () {},
-      icon: Icon(Icons.facebook),
-      label: Text('SIGN IN with Facebook'),
     );
   }
 }
