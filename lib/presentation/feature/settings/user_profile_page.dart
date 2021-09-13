@@ -20,10 +20,7 @@ class UserProfilePage extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: SafeArea(
-        minimum: EdgeInsets.symmetric(
-          horizontal: kSpaceM,
-        ).copyWith(bottom: kSpaceS),
+      bottomNavigationBar: BottomNav(
         child: WSubmitBtn(child: Text('Edit Profile'), onPressed: () {}),
       ),
       body: SingleChildScrollView(

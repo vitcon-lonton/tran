@@ -90,3 +90,19 @@ class ScaffoldBG extends StatelessWidget {
     );
   }
 }
+
+class BottomNav extends StatelessWidget {
+  final Widget child;
+
+  const BottomNav({Key? key, required this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: child,
+      minimum: EdgeInsets.symmetric(
+        horizontal: kSpaceM,
+      ).copyWith(bottom: kSpaceS),
+    );
+  }
+}

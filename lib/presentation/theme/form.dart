@@ -56,7 +56,7 @@ class WTextInput extends StatelessWidget {
     this.errorStyle,
     this.prefixIcon,
     this.suffixIcon,
-    this.borderRadius = const BorderRadius.all(Radius.circular(4)),
+    this.borderRadius,
     this.border,
     this.inputDecoration,
     this.keyboardType,
@@ -116,7 +116,8 @@ class WTextInput extends StatelessWidget {
     final isError = errorText != null;
     Widget effectiveErrorText = kSpaceZero;
     Widget effectiveLabelText = kSpaceZero;
-    InputBorder inputBorder = border ?? kInputBorder;
+    InputBorder inputBorder =
+        border ?? kInputBorder.copyWith(borderRadius: borderRadius);
     Widget effectiveSuffixIcon = suffixIcon ?? kSpaceZero;
 
     if (label != null) {

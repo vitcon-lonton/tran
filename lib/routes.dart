@@ -14,6 +14,7 @@ import 'presentation/feature/settings/settings.dart';
 import 'presentation/feature/sign_in/sign_in.dart';
 import 'presentation/feature/sign_up/sign_up.dart';
 import 'presentation/feature/verify/verify.dart';
+import 'presentation/feature/wallet/wallet.dart';
 
 class Routes {
   Routes._();
@@ -85,6 +86,7 @@ class Routes {
     page = ChangePWPage();
     page = AddFriendForm();
     page = ConfirmAddFriendForm();
+    page = CreateWalletPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }
