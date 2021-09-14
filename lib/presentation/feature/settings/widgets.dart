@@ -222,8 +222,8 @@ class UserFitness extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: kSpaceS, horizontal: kSpaceS),
       decoration: BoxDecoration(
+        color: primaryColor,
         borderRadius: kBorderRadius,
-        color: Theme.of(context).primaryColor,
       ),
       child: Row(
         children: [
@@ -257,7 +257,7 @@ class UserQRCode extends StatelessWidget {
       ),
       child: Column(
         children: [
-          kVSpaceM,
+          kVSpaceS,
           ListTile(
             onTap: () {},
             title: Text('David Tran',
@@ -278,7 +278,7 @@ class UserQRCode extends StatelessWidget {
               ),
             ),
           ),
-          kVSpaceM,
+          kVSpaceXS,
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: DottedBorder(
@@ -291,9 +291,10 @@ class UserQRCode extends StatelessWidget {
               },
             ),
           ),
-          kVSpaceM,
+          kVSpaceS,
+          kImgScanner,
           Icon(Icons.qr_code_2, size: 200),
-          kVSpaceXXL,
+          kVSpaceXL,
         ],
       ),
     );

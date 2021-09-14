@@ -15,7 +15,7 @@ const kColorPrimary = Color(0xff244495);
 const kColorSecondary = Colors.red;
 const kColorAccentBlue = Color(0xff244495);
 
-const kColorError = Colors.red;
+const kColorError = Color(0xffed1C24);
 const kColorRed2 = Color(0xffF66268);
 
 const kColorGreen = Color(0xff27AE60);

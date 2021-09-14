@@ -3,28 +3,34 @@ part of 'theme.dart';
 class Background extends StatelessWidget {
   final Widget child;
   final bool gradient;
+  final bool background;
 
   const Background.raw({
     Key? key,
     required this.child,
     required this.gradient,
+    required this.background,
   }) : super(key: key);
 
   factory Background({required Widget child}) {
-    return Background.raw(child: child, gradient: false);
+    return Background.raw(child: child, gradient: false, background: true);
   }
 
   factory Background.gradient({required Widget child}) {
-    return Background.raw(child: child, gradient: true);
+    return Background.raw(child: child, gradient: true, background: false);
+  }
+
+  factory Background.consumer({required Widget child}) {
+    return Background.raw(child: child, gradient: true, background: true);
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Stack(
-        // fit: StackFit.expand,
         children: [
-          Positioned(left: 0, top: -20, child: gradient ? kImgBGGRD : kImgBG),
+          if (gradient) Positioned(left: 0, top: -20, child: kImgBGGRD),
+          if (background) Positioned(left: 0, top: -20, child: kImgBG),
           child,
         ],
       ),
@@ -36,6 +42,7 @@ class ScaffoldBG extends StatelessWidget {
   final Key? key;
   final Widget body;
   final bool gradient;
+  final bool background;
   final PreferredSizeWidget? appBar;
   final Widget? bottomNavigationBar;
 
@@ -44,6 +51,7 @@ class ScaffoldBG extends StatelessWidget {
     required this.body,
     this.appBar,
     this.gradient = false,
+    this.background = true,
     this.bottomNavigationBar,
   }) : super(key: key);
 
@@ -67,12 +75,26 @@ class ScaffoldBG extends StatelessWidget {
       PreferredSizeWidget? appBar,
       Widget? bottomNavigationBar}) {
     return ScaffoldBG.raw(
-      key: key,
-      body: body,
-      appBar: appBar,
-      gradient: true,
-      bottomNavigationBar: bottomNavigationBar,
-    );
+        key: key,
+        body: body,
+        appBar: appBar,
+        gradient: true,
+        background: false,
+        bottomNavigationBar: bottomNavigationBar);
+  }
+
+  factory ScaffoldBG.consumer(
+      {Key? key,
+      required Widget body,
+      PreferredSizeWidget? appBar,
+      Widget? bottomNavigationBar}) {
+    return ScaffoldBG.raw(
+        key: key,
+        body: body,
+        appBar: appBar,
+        gradient: true,
+        background: true,
+        bottomNavigationBar: bottomNavigationBar);
   }
 
   @override
@@ -84,9 +106,11 @@ class ScaffoldBG extends StatelessWidget {
         bottomNavigationBar: bottomNavigationBar);
 
     return Material(
-      child: !gradient
-          ? Background(child: scaffold)
-          : Background.gradient(child: scaffold),
+      child: (gradient && background)
+          ? Background.consumer(child: scaffold)
+          : !gradient
+              ? Background(child: scaffold)
+              : Background.gradient(child: scaffold),
     );
   }
 }

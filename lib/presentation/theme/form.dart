@@ -16,6 +16,9 @@ final kFocusedErrorBorder = kInputBorder.copyWith();
 final kErrorBorder =
     kInputBorder.copyWith(borderSide: BorderSide(color: kColorError));
 
+//
+// Update contentPadding
+// EdgeInsets.fromLTRB(8, 0, 8, 0) to EdgeInsets.fromLTRB(12, 8, 12, 0)
 final kInputTheme = InputDecorationTheme(
   // filled: true,
   border: kInputBorder,
@@ -28,7 +31,7 @@ final kInputTheme = InputDecorationTheme(
   // focusedBorder: kFocusedBorder,
   // disabledBorder: kDisabledBorder,
   // focusedErrorBorder: kFocusedErrorBorder,
-  contentPadding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+  contentPadding: EdgeInsets.fromLTRB(12, 8, 12, 0),
 );
 
 final kInputDecoration = InputDecoration().applyDefaults(kInputTheme);
@@ -110,7 +113,6 @@ class WTextInput extends StatelessWidget {
   Widget build(BuildContext context) {
     // Get theme from context
     final themeData = Theme.of(context);
-    final primaryVariant = Theme.of(context).colorScheme.primaryVariant;
 
     // Setup effective props
     final isError = errorText != null;
@@ -118,7 +120,7 @@ class WTextInput extends StatelessWidget {
     Widget effectiveLabelText = kSpaceZero;
     InputBorder inputBorder =
         border ?? kInputBorder.copyWith(borderRadius: borderRadius);
-    Widget effectiveSuffixIcon = suffixIcon ?? kSpaceZero;
+    Widget? effectiveSuffixIcon = suffixIcon;
 
     if (label != null) {
       effectiveLabelText = DefaultTextStyle(
@@ -146,12 +148,13 @@ class WTextInput extends StatelessWidget {
             .copyWith(
               hintText: hintText,
               border: inputBorder,
+              fillColor: fillColor,
               prefixIcon: prefixIcon,
               errorText: isError ? '' : null,
               contentPadding: contentPadding,
-              fillColor: fillColor ?? primaryVariant,
-              hintStyle: kTextInputHint.merge(hintStyle),
               suffixIcon: effectiveSuffixIcon,
+              hintStyle: kTextInputHint.merge(hintStyle),
+              filled: fillColor == null ? false : true,
             );
 
     return Column(

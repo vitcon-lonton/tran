@@ -11,6 +11,7 @@ import 'presentation/feature/onboard/onboard.dart';
 import 'presentation/feature/profile/profile.dart';
 import 'presentation/feature/race/race.dart';
 import 'presentation/feature/settings/settings.dart';
+import 'presentation/feature/shop/shop.dart';
 import 'presentation/feature/sign_in/sign_in.dart';
 import 'presentation/feature/sign_up/sign_up.dart';
 import 'presentation/feature/verify/verify.dart';
@@ -87,6 +88,12 @@ class Routes {
     page = AddFriendForm();
     page = ConfirmAddFriendForm();
     page = CreateWalletPage();
+    page = CreateSeedPage();
+    page = VerifySeedPage();
+    page = TokenTransferPage();
+    page = TransactionHistoryPage();
+    page = ShopPage();
+    page = ShopSubscriptionPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }

@@ -6,11 +6,8 @@ class AddFriendForm extends StatelessWidget {
     return ScaffoldBG.gradient(
       appBar: AppBar(
         bottom: PreferredSize(
-          child: Container(
-            height: 95,
-            child: FlutterLogo(size: 50),
-          ),
-          preferredSize: Size.fromHeight(40),
+          child: kImgPana,
+          preferredSize: Size.fromHeight(50),
         ),
       ),
       body: SingleChildScrollView(
@@ -24,8 +21,9 @@ class AddFriendForm extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: kHeadline1.copyWith(fontSize: 16),
               ),
-              kVSpaceL,
+              kVSpaceXXL,
               WTextInput(
+                height: 40,
                 onChanged: (value) {},
               ),
               kVSpaceXXL,

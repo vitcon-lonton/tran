@@ -67,8 +67,8 @@ class SessionActivity extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: kSpaceS, horizontal: kSpaceS),
       decoration: BoxDecoration(
+        color: primaryColor,
         borderRadius: kBorderRadius,
-        color: Theme.of(context).primaryColor,
       ),
       child: DefaultTextStyle(
         style: TextStyle(color: Colors.white),

@@ -3,7 +3,7 @@ part of 'wallet.dart';
 class CreateWalletPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return ScaffoldBG.consumer(
       appBar: AppBar(title: Text('Create Wallet')),
       bottomNavigationBar: BottomNav(
         child: WSubmitBtn(child: const Text('Next'), onPressed: () {}),
@@ -14,6 +14,7 @@ class CreateWalletPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              kVSpaceXS,
               Text(
                 'SEED',
                 style: kTitle1.copyWith(fontSize: 22, color: primaryColor),
@@ -65,9 +66,7 @@ class CreateWalletPage extends StatelessWidget {
                   Expanded(child: WWordInput(onChanged: (value) {})),
                 ],
               ),
-              kVSpaceXS,
               kVSpaceXXL,
-              kVSpaceXL,
             ],
           ),
         ),

@@ -6,7 +6,7 @@ const kRbtC = TextStyle(fontFamily: 'RobotoCondensed', color: Colors.black);
 
 final kHeadline1 = kRbt.copyWith(fontSize: 22, fontWeight: FontWeight.w500);
 // [Bold or w700]
-final kHeadline2 = kRbt.copyWith(fontSize: 20, fontWeight: FontWeight.w700);
+final kHeadline2 = kRbt.copyWith(fontSize: 20, fontWeight: FontWeight.bold);
 
 final kTitle1 = kRbtC.copyWith(fontSize: 28, fontWeight: FontWeight.bold);
 final kTitleBold = kRbt.copyWith(fontSize: 16, fontWeight: FontWeight.bold);

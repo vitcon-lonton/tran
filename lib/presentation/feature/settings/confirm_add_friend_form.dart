@@ -6,12 +6,8 @@ class ConfirmAddFriendForm extends StatelessWidget {
     return ScaffoldBG.gradient(
       appBar: AppBar(
         bottom: PreferredSize(
-          child: Container(
-            height: 165,
-            color: Colors.white,
-            child: FlutterLogo(size: 80),
-          ),
-          preferredSize: Size.fromHeight(120),
+          child: kImgRafiki,
+          preferredSize: Size.fromHeight(70),
         ),
       ),
       body: SingleChildScrollView(
@@ -33,7 +29,7 @@ class ConfirmAddFriendForm extends StatelessWidget {
                   color: Colors.grey.shade600,
                 ),
               ),
-              kVSpaceXXL,
+              kVSpaceXL,
               Container(
                 padding: EdgeInsets.symmetric(horizontal: kSpaceM),
                 child: WSubmitBtn(

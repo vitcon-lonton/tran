@@ -7,12 +7,10 @@ class UserProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScaffoldBG(
       appBar: AppBar(
-        elevation: 0,
         title: Text('Profile'),
         bottom: _Bottom(),
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData.fallback(),
-        titleTextStyle: kTitleBold.copyWith(fontSize: 18),
         actions: [
           IconButton(
             onPressed: () {},
