@@ -11,6 +11,7 @@ class _AddCardPageState extends State<AddCardPage> {
   String cardHolderName = '';
   String cvvCode = '';
   bool isCvvFocused = false;
+  String hint = '\u25CF\u25CF\u25CF\u25CF';
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   void onCreditCardModelChange(CreditCardModel? creditCardModel) {
@@ -25,8 +26,24 @@ class _AddCardPageState extends State<AddCardPage> {
 
   @override
   Widget build(BuildContext context) {
+    final decoration = kInputDecoration.copyWith(
+      border: kInputBorder.copyWith(
+          borderSide: kBorderSide.copyWith(color: Colors.black87)),
+      contentPadding: EdgeInsets.fromLTRB(12, 12, 12, 15),
+      hintStyle: kTextInputHint.copyWith(fontSize: 14, color: kColorGrey5),
+    );
     return ScaffoldBG(
-      appBar: AppBar(title: Text('Add Card')),
+      appBar: AppBar(
+        title: Text('Add Card'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: kIcCamera,
+            // splashRadius: 28,
+          ),
+          kHSpaceXS,
+        ],
+      ),
       bottomNavigationBar: BottomNav(
         child: WSubmitBtn(child: const Text('Save'), onPressed: () {}),
       ),
@@ -37,47 +54,57 @@ class _AddCardPageState extends State<AddCardPage> {
             children: [
               kVSpaceXS,
               CreditCardWidget(
+                showBackView: false,
+                obscureCardCvv: true,
+                // obscureCardNumber: true,
+                isHolderNameVisible: true,
                 cvvCode: cvvCode,
                 cardNumber: cardNumber,
                 expiryDate: expiryDate,
                 cardHolderName: cardHolderName,
-                cardBgColor: Colors.transparent,
+                cardBgColor: kColorPrimary,
+                labelExpiredDate: '__/__',
+                labelCardHolder: '____ ____',
+                backgroundImage: kPathSHAPE,
                 onCreditCardWidgetChange: (b) {},
                 // showBackView: isCvvFocused,
-                showBackView: false,
-                obscureCardNumber: true,
-                obscureCardCvv: true,
+                textStyle:
+                    kBodyBold.copyWith(fontSize: 10, color: Colors.white),
               ),
+              kVSpaceXL,
               CreditCardForm(
                 formKey: formKey,
                 cvvCode: cvvCode,
-                // obscureCvv: true,
+                obscureCvv: true,
                 // obscureNumber: true,
                 cardNumber: cardNumber,
                 cardHolderName: cardHolderName,
                 expiryDate: expiryDate,
-                themeColor: Colors.transparent,
-                cardNumberDecoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'XXXX XXXX XXXX XXXX',
+                themeColor: kColorPrimary,
+                textColor: Colors.black87,
+                cardNumberDecoration: decoration.copyWith(
+                  hintText: 'Card number',
+                  suffixIcon: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                          width: 0.5,
+                          color: Colors.black26,
+                          margin: EdgeInsets.symmetric(vertical: 4)),
+                      kHSpaceXXS,
+                      kIcVisa,
+                      kHSpaceXS,
+                    ],
+                  ),
                 ),
-                expiryDateDecoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'XX/XX',
-                ),
-                cvvCodeDecoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'XXX',
-                ),
-                cardHolderDecoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Card Holder',
-                ),
+                expiryDateDecoration:
+                    decoration.copyWith(hintText: 'Expiration date'),
+                cvvCodeDecoration: decoration.copyWith(hintText: 'CVC'),
+                cardHolderDecoration:
+                    decoration.copyWith(hintText: 'Cardholder name'),
                 onCreditCardModelChange: onCreditCardModelChange,
               ),
-              kVSpaceXS,
-              kVSpaceM,
-              kVSpaceXXL,
               kVSpaceXXL,
             ],
           ),

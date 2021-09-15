@@ -27,7 +27,6 @@ class CreditCardWidget extends StatefulWidget {
       this.cardType,
       this.isHolderNameVisible = false,
       this.backgroundImage,
-      this.glassmorphismConfig,
       this.isChipVisible = true,
       this.isSwipeGestureEnabled = true,
       required this.onCreditCardWidgetChange})
@@ -49,12 +48,9 @@ class CreditCardWidget extends StatefulWidget {
   final bool isHolderNameVisible;
   final String? backgroundImage;
   final bool isChipVisible;
-  final Glassmorphism? glassmorphismConfig;
   final bool isSwipeGestureEnabled;
-
   final String labelCardHolder;
   final String labelExpiredDate;
-
   final CardType? cardType;
 
   @override
@@ -66,7 +62,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
   late AnimationController controller;
   late Animation<double> _frontRotation;
   late Animation<double> _backRotation;
-  late Gradient backgroundGradientColor;
+  late Color backgroundColor;
   late bool isFrontVisible = true;
   late bool isGestureUpdate = false;
 
@@ -82,24 +78,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
       vsync: this,
     );
 
-    _gradientSetup();
     _updateRotations(false);
-  }
-
-  void _gradientSetup() {
-    backgroundGradientColor = LinearGradient(
-      // Where the linear gradient begins and ends
-      begin: Alignment.topRight,
-      end: Alignment.bottomLeft,
-      // Add one stop for each color. Stops should increase from 0 to 1
-      stops: const <double>[0.1, 0.4, 0.7, 0.9],
-      colors: <Color>[
-        widget.cardBgColor.withOpacity(1),
-        widget.cardBgColor.withOpacity(0.97),
-        widget.cardBgColor.withOpacity(0.90),
-        widget.cardBgColor.withOpacity(0.86),
-      ],
-    );
   }
 
   @override
@@ -214,25 +193,19 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
   /// Card number, Exp. year and Card holder name
   ///
   Widget _buildFrontContainer() {
-    final TextStyle defaultTextStyle =
-        Theme.of(context).textTheme.headline6!.merge(
-              const TextStyle(
-                color: Colors.white,
-                // fontFamily: 'halter',
-                fontSize: 16,
-                // package: 'flutter_credit_card',
-              ),
-            );
+    final TextStyle defaultTextStyle = Theme.of(context)
+        .textTheme
+        .headline6!
+        .merge(const TextStyle(color: Colors.white, fontSize: 16));
 
     final String number = widget.obscureCardNumber
         ? widget.cardNumber.replaceAll(RegExp(r'(?<=.{4})\d(?=.{4})'), '*')
         : widget.cardNumber;
     return CardBackground(
-      backgroundImage: widget.backgroundImage,
-      backgroundGradientColor: backgroundGradientColor,
-      glassmorphismConfig: widget.glassmorphismConfig,
-      height: widget.height,
       width: widget.width,
+      height: widget.height,
+      backgroundImage: widget.backgroundImage,
+      backgroundColor: widget.cardBgColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -260,59 +233,79 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
               ],
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 10),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(left: 16),
               child: Text(
-                widget.cardNumber.isEmpty ? 'XXXX XXXX XXXX XXXX' : number,
-                style: widget.textStyle ?? defaultTextStyle,
+                widget.cardNumber.isEmpty
+                    ? '\u25CF\u25CF\u25CF\u25CF \u25CF\u25CF\u25CF\u25CF \u25CF\u25CF\u25CF\u25CF \u25CF\u25CF\u25CF\u25CF'
+                    : number,
+                style: defaultTextStyle
+                    .merge(widget.textStyle)
+                    .copyWith(fontSize: 22),
               ),
             ),
           ),
-          Expanded(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'VALID\nTHRU',
-                    style: widget.textStyle ??
-                        defaultTextStyle.copyWith(fontSize: 7),
-                    textAlign: TextAlign.center,
+          const SizedBox(height: 32),
+          Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Visibility(
+                  visible: widget.isHolderNameVisible,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'CARDHOLDER NAME',
+                          style: widget.textStyle ??
+                              defaultTextStyle.copyWith(fontSize: 7),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          widget.cardHolderName.isEmpty
+                              ? widget.labelCardHolder
+                              : widget.cardHolderName,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: widget.textStyle ?? defaultTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
-                  const SizedBox(width: 5),
-                  Text(
-                    widget.expiryDate.isEmpty
-                        ? widget.labelExpiredDate
-                        : widget.expiryDate,
-                    style: widget.textStyle ?? defaultTextStyle,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Visibility(
-            visible: widget.isHolderNameVisible,
-            child: Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                child: Text(
-                  widget.cardHolderName.isEmpty
-                      ? widget.labelCardHolder
-                      : widget.cardHolderName,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: widget.textStyle ?? defaultTextStyle,
                 ),
               ),
-            ),
-          ),
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 16, bottom: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        'VALID THRU',
+                        style: widget.textStyle ??
+                            defaultTextStyle.copyWith(fontSize: 7),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        widget.expiryDate.isEmpty
+                            ? widget.labelExpiredDate
+                            : widget.expiryDate,
+                        style: widget.textStyle ?? defaultTextStyle,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
@@ -337,9 +330,8 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
         : widget.cvvCode;
 
     return CardBackground(
+      backgroundColor: widget.cardBgColor,
       backgroundImage: widget.backgroundImage,
-      backgroundGradientColor: backgroundGradientColor,
-      glassmorphismConfig: widget.glassmorphismConfig,
       height: widget.height,
       width: widget.width,
       child: Column(

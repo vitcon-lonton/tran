@@ -2,7 +2,8 @@ part of 'credit_card.dart';
 
 const double webBreakPoint = 800;
 const double creditCardAspectRatio = 0.5714;
-const double creditCardPadding = 16;
+const double creditCardPadding = 0;
+// const double creditCardPadding = 16;
 
 enum CardType { otherBrand, mastercard, visa, americanExpress, discover }
 
@@ -41,8 +42,8 @@ class LocalizedText {
   static const String _expiryDateHintDefault = 'MM/YY';
   static const String _cvvLabelDefault = 'CVV';
   static const String _cvvHintDefault = 'XXXX';
-  static const String _cardHolderLabelDefault = 'Card Holder';
-  static const String _cardHolderHintDefault = '';
+  static const String _cardHolderLabelDefault = 'CARDHOLDER NAME';
+  static const String _cardHolderHintDefault = 'Cardholder name';
 
   final String cardNumberLabel;
   final String cardNumberHint;
@@ -52,31 +53,6 @@ class LocalizedText {
   final String cvvHint;
   final String cardHolderLabel;
   final String cardHolderHint;
-}
-
-class Glassmorphism {
-  Glassmorphism(
-      {required this.blurX, required this.blurY, required this.gradient});
-
-  factory Glassmorphism.defaultConfig() {
-    final LinearGradient gradient = LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: <Color>[
-        Colors.grey.withAlpha(20),
-        Colors.grey.withAlpha(20),
-      ],
-      stops: const <double>[
-        0.3,
-        0,
-      ],
-    );
-    return Glassmorphism(blurX: 8.0, blurY: 16.0, gradient: gradient);
-  }
-
-  final double blurX;
-  final double blurY;
-  final Gradient gradient;
 }
 
 class AnimationCard extends StatelessWidget {

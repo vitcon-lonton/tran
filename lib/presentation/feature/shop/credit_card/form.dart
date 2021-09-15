@@ -13,9 +13,7 @@ class CreditCardForm extends StatefulWidget {
     required this.themeColor,
     this.textColor = Colors.black,
     this.cursorColor,
-    this.cardHolderDecoration = const InputDecoration(
-      labelText: 'Card holder',
-    ),
+    this.cardHolderDecoration = const InputDecoration(labelText: 'Card holder'),
     this.cardNumberDecoration = const InputDecoration(
       labelText: 'Card number',
       hintText: 'XXXX XXXX XXXX XXXX',
@@ -164,29 +162,25 @@ class _CreditCardFormState extends State<CreditCardForm> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeData(
-        primaryColor: themeColor.withOpacity(0.8),
-        primaryColorDark: themeColor,
-      ),
+      data: ThemeData(colorScheme: ColorScheme.light(primary: themeColor)),
       child: Form(
         key: widget.formKey,
         child: Column(
-          children: <Widget>[
+          children: [
             Visibility(
               visible: widget.isCardNumberVisible,
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                margin: const EdgeInsets.only(left: 16, top: 16, right: 16),
+                height: 40,
+                margin: const EdgeInsets.only(top: 16),
                 child: TextFormField(
                   obscureText: widget.obscureNumber,
                   controller: _cardNumberController,
                   cursorColor: widget.cursorColor ?? themeColor,
+                  textAlignVertical: TextAlignVertical.bottom,
                   onEditingComplete: () {
                     FocusScope.of(context).requestFocus(expiryDateNode);
                   },
-                  style: TextStyle(
-                    color: widget.textColor,
-                  ),
+                  style: TextStyle(color: widget.textColor),
                   decoration: widget.cardNumberDecoration,
                   keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.next,
@@ -201,18 +195,42 @@ class _CreditCardFormState extends State<CreditCardForm> {
                 ),
               ),
             ),
+            Visibility(
+              visible: widget.isHolderNameVisible,
+              child: Container(
+                height: 40,
+                margin: const EdgeInsets.only(top: 24),
+                child: Container(
+                  child: TextFormField(
+                    controller: _cardHolderNameController,
+                    cursorColor: widget.cursorColor ?? themeColor,
+                    textAlignVertical: TextAlignVertical.bottom,
+                    focusNode: cardHolderNode,
+                    style: TextStyle(color: widget.textColor),
+                    decoration: widget.cardHolderDecoration,
+                    keyboardType: TextInputType.text,
+                    textInputAction: TextInputAction.done,
+                    autofillHints: const <String>[AutofillHints.creditCardName],
+                    onEditingComplete: () {
+                      FocusScope.of(context).unfocus();
+                      onCreditCardModelChange(creditCardModel);
+                    },
+                  ),
+                ),
+              ),
+            ),
             Row(
-              children: <Widget>[
+              children: [
                 Visibility(
                   visible: widget.isExpiryDateVisible,
                   child: Expanded(
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      margin:
-                          const EdgeInsets.only(left: 16, top: 8, right: 16),
+                      height: 40,
+                      margin: const EdgeInsets.only(top: 24),
                       child: TextFormField(
                         controller: _expiryDateController,
                         cursorColor: widget.cursorColor ?? themeColor,
+                        textAlignVertical: TextAlignVertical.bottom,
                         focusNode: expiryDateNode,
                         onEditingComplete: () {
                           FocusScope.of(context).requestFocus(cvvFocusNode);
@@ -247,15 +265,17 @@ class _CreditCardFormState extends State<CreditCardForm> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 32),
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    margin: const EdgeInsets.only(left: 16, top: 8, right: 16),
+                    height: 40,
+                    margin: const EdgeInsets.only(top: 24),
                     child: TextFormField(
                       obscureText: widget.obscureCvv,
                       focusNode: cvvFocusNode,
                       controller: _cvvCodeController,
                       cursorColor: widget.cursorColor ?? themeColor,
+                      textAlignVertical: TextAlignVertical.bottom,
                       onEditingComplete: () {
                         if (widget.isHolderNameVisible)
                           FocusScope.of(context).requestFocus(cardHolderNode);
@@ -290,29 +310,6 @@ class _CreditCardFormState extends State<CreditCardForm> {
                   ),
                 ),
               ],
-            ),
-            Visibility(
-              visible: widget.isHolderNameVisible,
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                margin: const EdgeInsets.only(left: 16, top: 8, right: 16),
-                child: TextFormField(
-                  controller: _cardHolderNameController,
-                  cursorColor: widget.cursorColor ?? themeColor,
-                  focusNode: cardHolderNode,
-                  style: TextStyle(
-                    color: widget.textColor,
-                  ),
-                  decoration: widget.cardHolderDecoration,
-                  keyboardType: TextInputType.text,
-                  textInputAction: TextInputAction.done,
-                  autofillHints: const <String>[AutofillHints.creditCardName],
-                  onEditingComplete: () {
-                    FocusScope.of(context).unfocus();
-                    onCreditCardModelChange(creditCardModel);
-                  },
-                ),
-              ),
             ),
           ],
         ),

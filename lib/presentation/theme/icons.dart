@@ -4,6 +4,7 @@ part of 'theme.dart';
 final kIcAddPhoto = Image.asset('assets/icons/ic_add_photo.png');
 final kIcApp = Image.asset('assets/icons/ic_app.png');
 final kIcApple = Image.asset('assets/icons/ic_apple.png');
+final kIcCamera = Image.asset('assets/icons/ic_camera.png');
 final kIcCar = Image.asset('assets/icons/ic_car.png');
 final kIcDistance = Image.asset('assets/icons/ic_distance.png');
 final kIcFB = Image.asset('assets/icons/ic_fb.png');

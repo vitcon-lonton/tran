@@ -100,10 +100,17 @@ class ScaffoldBG extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scaffold = Scaffold(
-        body: body,
-        appBar: appBar,
-        backgroundColor: Colors.transparent,
-        bottomNavigationBar: bottomNavigationBar);
+      body: body,
+      appBar: appBar,
+      backgroundColor: Colors.transparent,
+      bottomNavigationBar: bottomNavigationBar,
+    );
+
+    // if (gradient && background) {
+    //   return Background.consumer(child: scaffold);
+    // } else if (gradient) return Background(child: scaffold);
+
+    // return Background.gradient(child: scaffold);
 
     return Material(
       child: (gradient && background)

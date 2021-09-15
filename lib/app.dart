@@ -24,6 +24,8 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(),
         appBarTheme: AppBarTheme(
           elevation: 0,
+          centerTitle: true,
+          // toolbarHeight: 70,
           backgroundColor: Colors.transparent,
           iconTheme: IconThemeData.fallback(),
           titleTextStyle: kTitleBold.copyWith(fontSize: 18),

@@ -22,7 +22,7 @@ const kColorRed2 = Color(0xffF66268);
 const kColorGreen = Color(0xff27AE60);
 const kColorOrange = Color(0xffF2994A);
 
-extension ColorsExt on StatelessWidget {
+extension ColorsExt on Widget {
   Color get onPrimary => Colors.white;
   Color get primaryColor => kColorPrimary;
 }
