@@ -218,3 +218,66 @@ class PaymentMethodSelector extends StatelessWidget {
     );
   }
 }
+
+class CheckoutButton extends StatelessWidget {
+  const CheckoutButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 48,
+      margin: EdgeInsets.symmetric(horizontal: kSpaceXXL),
+      child: ClipRRect(
+        borderRadius: kBorderRadius,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Container(
+              color: kColorOrange,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      color: primaryColor,
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Checkout',
+                        style: kBTNTitle.copyWith(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 24,
+                    decoration: BoxDecoration(
+                      color: primaryColor,
+                      borderRadius:
+                          BorderRadius.horizontal(right: Radius.circular(12)),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Text(
+                        '\$400.00',
+                        style: kBTNTitle.copyWith(color: Colors.black54),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Container(),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.zero,
+                primary: Colors.transparent,
+                shadowColor: Colors.transparent,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
