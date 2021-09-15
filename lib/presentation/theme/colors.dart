@@ -14,6 +14,7 @@ const kColorBlack = Colors.black;
 const kColorPrimary = Color(0xff244495);
 const kColorSecondary = Colors.red;
 const kColorAccentBlue = Color(0xff244495);
+const kColorBlue2 = Color.fromRGBO(194, 214, 232, 0.5);
 
 const kColorError = Color(0xffed1C24);
 const kColorRed2 = Color(0xffF66268);

@@ -16,10 +16,7 @@ class TokenTransferPage extends StatelessWidget {
           child: Column(
             children: [
               kVSpaceS,
-              Text(
-                title,
-                style: TextStyle(color: primaryColor),
-              ),
+              Text(title, style: TextStyle(color: primaryColor)),
               kVSpaceS,
               icon,
               kVSpaceS,
@@ -49,9 +46,9 @@ class TokenTransferPage extends StatelessWidget {
               kVSpaceM,
               Row(
                 children: [
-                  button('Total Distance', '21.23 km', Icon(Icons.pin_drop)),
+                  button('Total Distance', '21.23 km', kIcDistance),
                   const Spacer(),
-                  button('Total Token', '9.6784', Icon(Icons.monetization_on)),
+                  button('Total Token', '9.6784', kIcTokenMoney),
                 ],
               ),
               kVSpaceXS,

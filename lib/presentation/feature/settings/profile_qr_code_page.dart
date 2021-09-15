@@ -37,7 +37,7 @@ class ProfileQRCodePage extends StatelessWidget {
                     leading: Container(
                       width: 54,
                       height: 54,
-                      child: Icon(Icons.lightbulb, color: primaryColor),
+                      child: kIcIdea,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),

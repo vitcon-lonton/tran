@@ -22,8 +22,8 @@ class Box extends StatelessWidget {
           child: Text('\$$price.00', style: TextStyle(fontSize: 12)),
           padding: EdgeInsets.all(6.0),
           decoration: BoxDecoration(
+            color: kColorBlue2,
             borderRadius: BorderRadius.circular(2),
-            color: Color.fromRGBO(194, 214, 232, 0.5),
           ),
         )
       ],
@@ -93,6 +93,127 @@ class ShopBG extends StatelessWidget {
       children: [
         kImgUpBG,
         Positioned(top: 0, right: 0, bottom: 0, child: kImg1392),
+      ],
+    );
+  }
+}
+
+class PaymentMethodSelector extends StatelessWidget {
+  const PaymentMethodSelector({Key? key}) : super(key: key);
+
+  Widget button(Widget child) {
+    return ButtonTheme(
+      child: ElevatedButton(
+        // child: Row(
+        //   children: [
+        //     icon,
+        //     const Spacer(),
+        //     Icon(Icons.radio_button_on_sharp),
+        //   ],
+        // ),
+        onPressed: () {},
+        child: IconTheme(
+          child: child,
+          data: IconThemeData(color: Colors.black.withOpacity(0.8)),
+        ),
+        style: ElevatedButton.styleFrom(
+          // onSurface: primaryColor,
+          primary: kColorBlue2,
+          onPrimary: primaryColor,
+          fixedSize: Size.fromHeight(60),
+          textStyle: TextStyle(
+            fontSize: 12,
+            color: Colors.black87,
+            fontWeight: FontWeight.w400,
+          ),
+          shadowColor: Colors.transparent,
+          // onPrimary: Colors.black.withOpacity(0.8),
+          padding: EdgeInsets.symmetric(
+            horizontal: kSpaceM,
+            vertical: kSpaceXXS,
+          ),
+        ),
+      ),
+    );
+  }
+
+  infoCard(Widget icon) {
+    return Row(
+      children: [
+        icon,
+        kHSpaceM,
+        Expanded(
+          flex: 4,
+          child: DefaultTextStyle(
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.black87,
+              fontWeight: FontWeight.w400,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('5168'),
+                    Text('1234'),
+                    Text('4567'),
+                    Text('5789'),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text('JOHN CITIZEN'),
+                    const Spacer(),
+                    Text('12/25')
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+        const Spacer(),
+        Icon(Icons.radio_button_on_sharp),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text('Add new payment method',
+                style: kBodyMedium.copyWith(fontSize: 14)),
+          ],
+        ),
+        kVSpaceS,
+        button(
+          Row(
+            children: [
+              kIcPaypal,
+              const Spacer(),
+              Icon(Icons.radio_button_unchecked),
+            ],
+          ),
+        ),
+        kVSpaceM,
+        button(infoCard(kIcVisa)),
+        kVSpaceM,
+        button(infoCard(kIcMastercard)),
+        kVSpaceM,
+        button(
+          Row(
+            children: [
+              Icon(Icons.add_circle, size: 36, color: primaryColor),
+              kHSpaceL,
+              Text('Add card', style: kBodyBold.copyWith(color: primaryColor)),
+            ],
+          ),
+        ),
       ],
     );
   }

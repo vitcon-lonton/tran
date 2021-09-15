@@ -44,6 +44,8 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   introduction_screen: ^2.1.0
   sign_in_with_apple: ^3.0.0
+  # credit_card_input_form: ^2.3.0
+  # flutter_credit_card: ^2.0.0
   charts_flutter:
     git:
       url: git://github.com/google/charts.git

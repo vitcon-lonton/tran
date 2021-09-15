@@ -26,7 +26,7 @@ class WSubmitBtn extends StatelessWidget {
           // primary: kColorAccentBlue,
           shadowColor: Colors.transparent,
           shape: RoundedRectangleBorder(
-            borderRadius: radius ?? BorderRadius.all(Radius.circular(12.0)),
+            borderRadius: radius ?? BorderRadius.all(Radius.circular(10.0)),
           ),
         ),
       ),

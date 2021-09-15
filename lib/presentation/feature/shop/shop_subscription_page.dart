@@ -19,40 +19,22 @@ class ShopSubscriptionPage extends StatelessWidget {
               Text('Pay subscription fee - tran ME'),
               kVSpaceXS,
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: kSpaceL * 3),
-                child: TextFormField(
-                  textAlign: TextAlign.center,
-                  style: kTitleBold.copyWith(fontSize: 28),
-                  decoration: InputDecoration(
-                    // border: OutlineInputBorder(borderSide: BorderSide()),
-                    contentPadding: EdgeInsets.fromLTRB(12, 8, 12, 16),
+                padding: EdgeInsets.symmetric(horizontal: kSpaceS),
+                child: Theme(
+                  data: ThemeData(
+                    colorScheme: ColorScheme.light(primary: kColorOrange),
+                  ),
+                  child: TextFormField(
+                    textAlign: TextAlign.center,
+                    style: kTitleBold.copyWith(fontSize: 28),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(12, 8, 12, 16),
+                    ),
                   ),
                 ),
               ),
               kVSpaceXXL,
-              Row(
-                children: [
-                  Text('Add new payment method',
-                      style: kBodyMedium.copyWith(fontSize: 14)),
-                ],
-              ),
-              kVSpaceXS,
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  fixedSize: Size.fromHeight(60),
-                  shadowColor: Colors.transparent,
-                ),
-                child: Row(
-                  children: [
-                    Icon(Icons.padding),
-                    const Spacer(),
-                    Icon(Icons.radio_button_on_sharp),
-                  ],
-                ),
-              ),
-              kVSpaceXXL,
+              PaymentMethodSelector(),
               kVSpaceXXL,
             ],
           ),

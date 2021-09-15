@@ -94,6 +94,7 @@ class Routes {
     page = TransactionHistoryPage();
     page = ShopPage();
     page = ShopSubscriptionPage();
+    page = AddCardPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }
