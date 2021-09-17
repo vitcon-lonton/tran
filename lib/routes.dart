@@ -1,6 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
+import 'package:tranme/presentation/feature/home/home.dart';
 
 import 'presentation/feature/activity/activity.dart';
 import 'presentation/feature/events/events.dart';
@@ -74,28 +75,29 @@ class Routes {
     }
 
     page = ActivityPage();
-    page = EventsPage();
-    page = RacePage();
-    page = RaceDetailPage();
-    page = NewsPage();
-    page = NotificationPage();
-    page = SettingsPage();
-    page = UserProfilePage();
-    page = ProfileQRCodePage();
-    page = EditProfilePage();
-    page = ResetPWPage();
-    page = ChangePWPage();
-    page = AddFriendForm();
-    page = ConfirmAddFriendForm();
-    page = CreateWalletPage();
-    page = CreateSeedPage();
-    page = VerifySeedPage();
-    page = TokenTransferPage();
-    page = TransactionHistoryPage();
-    page = ShopPage();
-    page = ShopSubscriptionPage();
-    page = AddCardPage();
-    page = ShopOrderPage();
+    // page = EventsPage();
+    // page = RacePage();
+    // page = RaceDetailPage();
+    // page = NewsPage();
+    // page = NotificationPage();
+    // page = SettingsPage();
+    // page = UserProfilePage();
+    // page = ProfileQRCodePage();
+    // page = EditProfilePage();
+    // page = ResetPWPage();
+    // page = ChangePWPage();
+    // page = AddFriendForm();
+    // page = ConfirmAddFriendForm();
+    // page = CreateWalletPage();
+    // page = CreateSeedPage();
+    // page = VerifySeedPage();
+    // page = TokenTransferPage();
+    // page = TransactionHistoryPage();
+    // page = ShopPage();
+    // page = ShopSubscriptionPage();
+    // page = AddCardPage();
+    // page = ShopOrderPage();
+    page = HomePage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }

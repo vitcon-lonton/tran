@@ -11,9 +11,15 @@ Map<ActivityType, String> activityLabels = {
 };
 
 Map<ActivityType, Widget> activityIcons = {
-  ActivityType.walking: Icon(Icons.nordic_walking_outlined),
-  ActivityType.cycling: Icon(Icons.pedal_bike_outlined),
-  ActivityType.vehicle: Icon(Icons.car_rental_rounded),
+  ActivityType.walking: kIcRunShoes,
+  ActivityType.cycling: kIcCycling,
+  ActivityType.vehicle: kIcCarSimple
+};
+
+Map<ActivityStatus, Widget> statusIcons = {
+  ActivityStatus.none: kIcHuman,
+  ActivityStatus.running: kIcHumanRun,
+  ActivityStatus.process: kIcHumanWalk
 };
 
 class ActivityAB extends StatelessWidget implements PreferredSizeWidget {
@@ -55,6 +61,10 @@ class ActivityAB extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class SessionActivity extends StatelessWidget {
+  final ActivityStatus status;
+
+  const SessionActivity(this.status, {Key? key}) : super(key: key);
+
   Widget group(String title, String value) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,7 +92,7 @@ class SessionActivity extends StatelessWidget {
                   children: [
                     Text('Session Activity'),
                     kVSpaceS,
-                    Icon(Icons.emoji_people, size: 56),
+                    statusIcons[status] ?? kSpaceZero
                   ],
                 ),
               ),

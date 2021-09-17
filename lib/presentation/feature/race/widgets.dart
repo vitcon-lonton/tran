@@ -58,17 +58,12 @@ class RaceTile extends StatelessWidget {
           Text('Ralph Edwards', style: kBodyMedium.copyWith(fontSize: 16)),
           kVSpaceXXS,
           SessionActivity(),
+          kVSpaceXXS,
           Container(
             height: 190,
             decoration: BoxDecoration(
               color: Color(0xFFEDEDED),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 4,
-                  offset: Offset(0, 4), // changes position of shadow
-                  color: Colors.black26,
-                ),
-              ],
+              image: DecorationImage(image: AssetImage(kPathMap1)),
             ),
           ),
         ],

@@ -15,11 +15,11 @@ class SettingsPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),
         child: Column(
           children: [
-            UserSettings(),
             kVSpaceL,
             PilotSettings(),
             kVSpaceS,
             UserSettings(),
+            kVSpaceXXL,
           ],
         ),
       ),
