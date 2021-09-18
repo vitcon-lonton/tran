@@ -43,6 +43,7 @@ class ScaffoldBG extends StatelessWidget {
   final Widget body;
   final bool gradient;
   final bool background;
+  final bool? scrollable;
   final PreferredSizeWidget? appBar;
   final Widget? bottomNavigationBar;
 
@@ -50,6 +51,7 @@ class ScaffoldBG extends StatelessWidget {
     this.key,
     required this.body,
     this.appBar,
+    this.scrollable,
     this.gradient = false,
     this.background = true,
     this.bottomNavigationBar,
@@ -57,6 +59,7 @@ class ScaffoldBG extends StatelessWidget {
 
   factory ScaffoldBG(
       {Key? key,
+      bool? scrollable,
       required Widget body,
       PreferredSizeWidget? appBar,
       Widget? bottomNavigationBar}) {
@@ -65,12 +68,14 @@ class ScaffoldBG extends StatelessWidget {
       body: body,
       appBar: appBar,
       gradient: false,
+      scrollable: scrollable,
       bottomNavigationBar: bottomNavigationBar,
     );
   }
 
   factory ScaffoldBG.gradient(
       {Key? key,
+      bool? scrollable,
       required Widget body,
       PreferredSizeWidget? appBar,
       Widget? bottomNavigationBar}) {
@@ -80,11 +85,13 @@ class ScaffoldBG extends StatelessWidget {
         appBar: appBar,
         gradient: true,
         background: false,
+        scrollable: scrollable,
         bottomNavigationBar: bottomNavigationBar);
   }
 
   factory ScaffoldBG.consumer(
       {Key? key,
+      bool? scrollable,
       required Widget body,
       PreferredSizeWidget? appBar,
       Widget? bottomNavigationBar}) {
@@ -94,16 +101,17 @@ class ScaffoldBG extends StatelessWidget {
         appBar: appBar,
         gradient: true,
         background: true,
+        scrollable: scrollable,
         bottomNavigationBar: bottomNavigationBar);
   }
 
   @override
   Widget build(BuildContext context) {
     final scaffold = Scaffold(
-      body: body,
       appBar: appBar,
       backgroundColor: Colors.transparent,
       bottomNavigationBar: bottomNavigationBar,
+      body: (scrollable ?? false) ? SingleChildScrollView(child: body) : body,
     );
 
     // if (gradient && background) {

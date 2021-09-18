@@ -1,7 +1,7 @@
 part of 'shop.dart';
 
-class ShopOrderPage extends StatelessWidget {
-  const ShopOrderPage({Key? key}) : super(key: key);
+class MyOrderPage extends StatelessWidget {
+  const MyOrderPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

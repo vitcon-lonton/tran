@@ -1,5 +1,14 @@
 part of 'shop.dart';
 
+Future showPayDone(BuildContext context) {
+  return showDialog(
+    context: context,
+    builder: (_) => Column(
+      children: [const Spacer(), PayDone(), const Spacer(flex: 2)],
+    ),
+  );
+}
+
 class Box extends StatelessWidget {
   final int coin;
   final double price;
@@ -276,6 +285,255 @@ class CheckoutButton extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CardTile extends StatelessWidget {
+  const CardTile({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTextStyle(
+      style: TextStyle(
+        fontSize: 12,
+        color: Colors.black87,
+        fontWeight: FontWeight.w400,
+      ),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: kSpaceS),
+        decoration: BoxDecoration(
+          color: kColorBlue2,
+          borderRadius: BorderRadius.circular(2),
+        ),
+        child: Column(
+          children: [
+            kVSpaceL,
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text('Card number'),
+                      kVSpaceXXS,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('5168'),
+                          Text('1234'),
+                          Text('4567'),
+                          Text('5789'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+                kIcVisa,
+                kHSpaceS,
+              ],
+            ),
+            kVSpaceM,
+            Row(
+              children: [
+                Expanded(child: column('Card name', 'JOHN CITIZEN')),
+                kHSpaceM,
+                Expanded(child: column('Expiration date', '12/25')),
+                kHSpaceM,
+                Expanded(child: column('CVC', '516')),
+                kHSpaceM,
+              ],
+            ),
+            kVSpaceXXL,
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget column(String title, String value) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [Text(title), kVSpaceXXS, Text(value)],
+    );
+  }
+}
+
+class SubsTile extends StatelessWidget {
+  final int qty;
+  final Widget child;
+
+  const SubsTile({
+    Key? key,
+    required this.qty,
+    required this.child,
+  }) : super(key: key);
+
+  Widget column(String title, String value) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(title),
+        Container(
+          child: Text(value),
+          color: kColorBlue3,
+          padding: EdgeInsets.symmetric(
+            vertical: kSpaceXS,
+            horizontal: kSpaceM,
+          ),
+        )
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 170,
+      decoration: BoxDecoration(
+        color: kColorBlue2,
+        borderRadius: BorderRadius.circular(2),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: kSpaceXXS),
+      child: Row(
+        children: [
+          Expanded(flex: 4, child: child),
+          kHSpaceM,
+          Expanded(
+            flex: 3,
+            child: Column(
+              children: [
+                kVSpaceS,
+                Row(
+                  children: [
+                    column('Qty', '1'),
+                    const Spacer(),
+                    column('Price', '\$10'),
+                  ],
+                ),
+                const Spacer(),
+                Container(
+                  padding: EdgeInsets.only(left: 24),
+                  child: Column(
+                    children: [
+                      const Divider(color: Color(0xffFF961C), thickness: 1),
+                      Row(
+                        children: [
+                          Text('Total:'),
+                          const Spacer(),
+                          Text('\$10')
+                        ],
+                      ),
+                      kVSpaceXXS,
+                      const Divider(
+                          color: Color(0xffFF961C), height: 0, thickness: 1),
+                    ],
+                  ),
+                ),
+                kVSpaceS,
+              ],
+            ),
+          ),
+          kHSpaceS,
+        ],
+      ),
+    );
+  }
+}
+
+class WarningBox extends StatelessWidget {
+  const WarningBox({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: kSpaceXXL),
+      decoration: BoxDecoration(
+        color: Color(0xffFFD04C),
+        borderRadius: kBorderRadius,
+        border: Border.fromBorderSide(kBorderSide.copyWith(width: 0.6)),
+      ),
+      child: Column(
+        children: [
+          kVSpaceL,
+          kIcCar,
+          kVSpaceL,
+          Text('Warning!'),
+          kVSpaceXS,
+          Text('You\'re going to fast'),
+          kVSpaceL,
+          Text('tran ME should be played fairly'),
+          kVSpaceL,
+          Container(
+            height: 48,
+            width: double.infinity,
+            child: WSubmitBtn(
+              onPressed: () {},
+              child: Text('Confirm'),
+              radius: BorderRadius.circular(6.0),
+            ),
+          ),
+          kVSpaceL,
+        ],
+      ),
+    );
+  }
+}
+
+class PayDone extends StatelessWidget {
+  const PayDone({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(
+        horizontal: kSpaceL,
+      ).copyWith(bottom: kSpaceXXL),
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(32.0)),
+        child: Background.gradient(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: kSpaceXL),
+            child: Material(
+              color: Colors.transparent,
+              child: Column(
+                children: [
+                  kVSpaceM,
+                  kIcDone,
+                  Text(
+                    'Thank you\n for your order',
+                    textAlign: TextAlign.center,
+                    style: kBodyMedium.copyWith(fontSize: 22),
+                  ),
+                  kVSpaceXL,
+                  Container(
+                    height: 46,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      child: Text('Done'),
+                      onPressed: () => Navigator.of(context).pop(),
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        shadowColor: Colors.transparent,
+                        primary: Color.fromRGBO(60, 121, 230, 1),
+                        textStyle: kBodyMedium.copyWith(fontSize: 18),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        ),
+                      ),
+                    ),
+                  ),
+                  kVSpaceM,
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

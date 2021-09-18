@@ -1,7 +1,7 @@
 part of 'shop.dart';
 
-class ShopSubscriptionPage extends StatelessWidget {
-  const ShopSubscriptionPage({Key? key}) : super(key: key);
+class SubscriptionPage extends StatelessWidget {
+  const SubscriptionPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -7,6 +7,7 @@ final kIcApple = Image.asset('assets/icons/ic_apple.png');
 final kIcCamera = Image.asset('assets/icons/ic_camera.png');
 final kIcCar = Image.asset('assets/icons/ic_car.png');
 final kIcDistance = Image.asset('assets/icons/ic_distance.png');
+final kIcDone = Image.asset('assets/icons/ic_done.png');
 final kIcFB = Image.asset('assets/icons/ic_fb.png');
 final kIcGoogle = Image.asset('assets/icons/ic_google.png');
 final kIcHome2 = Image.asset('assets/icons/ic_home_2.png');

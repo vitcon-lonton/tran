@@ -94,10 +94,12 @@ class Routes {
     // page = TokenTransferPage();
     // page = TransactionHistoryPage();
     // page = ShopPage();
-    // page = ShopSubscriptionPage();
+    // page = SubscriptionPage();
     // page = AddCardPage();
-    // page = ShopOrderPage();
-    page = HomePage();
+    // page = MyOrderPage();
+    // page = HomePage();
+    // page = MyCartSubsPage();
+    page = MyCartOrderPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }
