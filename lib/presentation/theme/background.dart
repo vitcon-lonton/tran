@@ -121,6 +121,7 @@ class ScaffoldBG extends StatelessWidget {
     // return Background.gradient(child: scaffold);
 
     return Material(
+      color: Colors.white,
       child: (gradient && background)
           ? Background.consumer(child: scaffold)
           : !gradient

@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:tranme/presentation/theme/theme.dart';
+import 'package:tranme/routes.dart';
 
 part 'add_friend_form.dart';
 part 'change_pw_page.dart';

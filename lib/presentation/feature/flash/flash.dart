@@ -17,16 +17,15 @@ class _FlashPageState extends State<FlashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Background(
+    return ScaffoldBG(
+      body: Container(
         child: Column(
           children: [
             kVSpaceL,
             kVSpaceL,
             kVSpaceL,
             kVSpaceL,
-            Flexible(child: kImgFlashBanner),
+            Flexible(child: Center(child: kImgFlashBanner)),
             kVSpaceL,
             kVSpaceL,
             kVSpaceL,

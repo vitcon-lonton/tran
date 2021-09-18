@@ -12,6 +12,7 @@ part 'colors.dart';
 part 'form.dart';
 part 'header.dart';
 part 'icons.dart';
+part 'options.dart';
 part 'selector.dart';
 part 'spacing.dart';
 part 'styles.dart';

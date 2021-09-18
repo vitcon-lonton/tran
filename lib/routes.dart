@@ -33,6 +33,7 @@ class Routes {
   static const forgot_pw = '/forgot_pw';
   static const onboard = '/onboard';
   static const profile = '/profile';
+  static const createWallet = '/wallet/create';
 
   static Route onGenerateRoute(RouteSettings? settings) {
     final args = settings!.arguments;
@@ -69,12 +70,17 @@ class Routes {
         page = ProfilePage();
         break;
 
+      case createWallet:
+        page = CreateWalletPage();
+        break;
+
       default:
         page = FlashPage();
         break;
     }
 
-    page = ActivityPage();
+    // page = FlashPage();
+    // page = ActivityPage();
     // page = EventsPage();
     // page = RacePage();
     // page = RaceDetailPage();
@@ -100,7 +106,7 @@ class Routes {
     // page = HomePage();
     // page = MyCartSubsPage();
     // page = MyCartOrderPage();
-    page = SendGiftPage();
+    // page = SendGiftPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }

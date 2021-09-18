@@ -1,49 +1,5 @@
 part of 'settings.dart';
 
-class SettingTile extends StatelessWidget {
-  final String text;
-  final double? height;
-  final EdgeInsets? padding;
-  final BorderRadius? radius;
-  final VoidCallback? onPressed;
-
-  const SettingTile(
-    this.text, {
-    Key? key,
-    this.height,
-    this.radius,
-    this.padding,
-    this.onPressed,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: height ?? 45,
-      child: TextButton(
-        onPressed: onPressed ?? () {},
-        child: Row(
-          children: [
-            kHSpaceM,
-            Text(text, style: kBodyMedium.copyWith(fontSize: 14)),
-            const Spacer(),
-            const Icon(Icons.arrow_forward_ios_outlined, size: 12),
-            kHSpaceM,
-          ],
-        ),
-        style: TextButton.styleFrom(
-          fixedSize: Size.fromHeight(44),
-          padding: padding ?? EdgeInsets.zero,
-          shape: RoundedRectangleBorder(
-            side: BorderSide.none,
-            borderRadius: radius ?? BorderRadius.zero,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class UserSettings extends StatelessWidget {
   const UserSettings({Key? key}) : super(key: key);
 
@@ -57,7 +13,7 @@ class UserSettings extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SettingTile(
+          OptionTile(
             'Change Password',
             height: 55,
             radius: kBorderRadius.copyWith(
@@ -65,9 +21,9 @@ class UserSettings extends StatelessWidget {
             padding: EdgeInsets.only(top: kSpaceXS),
           ),
           const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
-          SettingTile('Add Friend', radius: BorderRadius.zero),
+          OptionTile('Add Friend'),
           const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
-          SettingTile('Language', radius: BorderRadius.zero),
+          OptionTile('Language'),
           const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
           Container(
             height: 58,
@@ -95,37 +51,29 @@ class PilotSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: kBorderRadius,
-        border: Border.fromBorderSide(kBorderSide),
-      ),
-      child: Column(
-        children: [
-          SettingTile(
-            'Create Wallet',
-            height: 55,
-            radius: kBorderRadius.copyWith(
-                bottomLeft: Radius.zero, bottomRight: Radius.zero),
-            padding: EdgeInsets.only(top: kSpaceXS),
-          ),
-          const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
-          SettingTile('Transfer Token', radius: BorderRadius.zero),
-          const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
-          SettingTile('Transfer History', radius: BorderRadius.zero),
-          const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
-          SettingTile('Shop', radius: BorderRadius.zero),
-          const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
-          SettingTile(
-            'Send Gift',
-            height: 55,
-            radius: kBorderRadius.copyWith(
-                topLeft: Radius.zero, topRight: Radius.zero),
-            padding: EdgeInsets.only(bottom: kSpaceXS),
-          ),
-        ],
-      ),
+    return OptionsView(
+      options: [
+        OptionTile(
+          'Create Wallet',
+          height: 55,
+          radius: kBorderRadius.copyWith(
+              bottomLeft: Radius.zero, bottomRight: Radius.zero),
+          padding: EdgeInsets.only(top: kSpaceXS),
+          onPressed: () {
+            Navigator.of(context).pushNamed(Routes.createWallet);
+          },
+        ),
+        OptionTile('Transfer Token'),
+        OptionTile('Transfer History'),
+        OptionTile('Shop'),
+        OptionTile(
+          'Send Gift',
+          height: 55,
+          radius: kBorderRadius.copyWith(
+              topLeft: Radius.zero, topRight: Radius.zero),
+          padding: EdgeInsets.only(bottom: kSpaceXS),
+        ),
+      ],
     );
   }
 }
