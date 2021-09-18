@@ -7,8 +7,9 @@ class SubscriptionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScaffoldBG(
       appBar: AppBar(title: Text('Subscription')),
-      bottomNavigationBar: BottomNav(
-        child: WSubmitBtn(child: const Text('Checkout'), onPressed: () {}),
+      bottomNavigationBar: BottomNav.submit(
+        child: const Text('Checkout'),
+        onPressed: () {},
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),

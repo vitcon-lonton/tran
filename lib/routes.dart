@@ -99,7 +99,8 @@ class Routes {
     // page = MyOrderPage();
     // page = HomePage();
     // page = MyCartSubsPage();
-    page = MyCartOrderPage();
+    // page = MyCartOrderPage();
+    page = SendGiftPage();
 
     return MaterialPageRoute(builder: (_) => page, settings: settings);
   }

@@ -131,14 +131,38 @@ class ScaffoldBG extends StatelessWidget {
 }
 
 class BottomNav extends StatelessWidget {
+  final bool submit;
   final Widget child;
+  final VoidCallback? onPressed;
 
-  const BottomNav({Key? key, required this.child}) : super(key: key);
+  const BottomNav._({
+    Key? key,
+    this.onPressed,
+    required this.child,
+    required this.submit,
+  }) : super(key: key);
+
+  factory BottomNav.raw({Key? key, required Widget child}) {
+    return BottomNav._(key: key, child: child, submit: true, onPressed: null);
+  }
+
+  factory BottomNav.submit({
+    Key? key,
+    required Widget child,
+    VoidCallback? onPressed,
+  }) {
+    return BottomNav._(
+      key: key,
+      child: child,
+      submit: false,
+      onPressed: onPressed,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: child,
+      child: submit ? child : WSubmitBtn(child: child, onPressed: onPressed),
       minimum: EdgeInsets.symmetric(
         horizontal: kSpaceM,
       ).copyWith(bottom: kSpaceS),

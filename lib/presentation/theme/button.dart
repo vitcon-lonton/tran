@@ -2,14 +2,14 @@ part of 'theme.dart';
 
 class WSubmitBtn extends StatelessWidget {
   final Widget child;
-  final VoidCallback onPressed;
   final BorderRadius? radius;
+  final VoidCallback? onPressed;
 
   const WSubmitBtn({
     Key? key,
-    required this.child,
-    required this.onPressed,
     this.radius,
+    this.onPressed,
+    required this.child,
   }) : super(key: key);
 
   @override

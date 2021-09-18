@@ -5,8 +5,9 @@ class VerifySeedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScaffoldBG.consumer(
       appBar: AppBar(title: Text('Create Wallet')),
-      bottomNavigationBar: BottomNav(
-        child: WSubmitBtn(child: const Text('Done'), onPressed: () {}),
+      bottomNavigationBar: BottomNav.submit(
+        child: const Text('Done'),
+        onPressed: () {},
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),

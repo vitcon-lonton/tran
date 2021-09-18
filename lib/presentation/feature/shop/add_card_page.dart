@@ -44,8 +44,9 @@ class _AddCardPageState extends State<AddCardPage> {
           kHSpaceXS,
         ],
       ),
-      bottomNavigationBar: BottomNav(
-        child: WSubmitBtn(child: const Text('Save'), onPressed: () {}),
+      bottomNavigationBar: BottomNav.submit(
+        child: const Text('Save'),
+        onPressed: () {},
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),

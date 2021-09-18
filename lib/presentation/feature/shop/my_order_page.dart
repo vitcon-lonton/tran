@@ -7,7 +7,7 @@ class MyOrderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScaffoldBG(
       appBar: AppBar(title: Text('My Order')),
-      bottomNavigationBar: BottomNav(child: CheckoutButton()),
+      bottomNavigationBar: BottomNav.raw(child: CheckoutButton()),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),
         child: Column(

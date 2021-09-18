@@ -5,8 +5,9 @@ class CreateSeedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScaffoldBG.consumer(
       appBar: AppBar(title: Text('Create Wallet')),
-      bottomNavigationBar: BottomNav(
-        child: WSubmitBtn(child: const Text('Create'), onPressed: () {}),
+      bottomNavigationBar: BottomNav.submit(
+        child: const Text('Create'),
+        onPressed: () {},
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),

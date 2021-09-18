@@ -7,11 +7,9 @@ class MyCartSubsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScaffoldBG(
       appBar: AppBar(title: Text('My Cart')),
-      bottomNavigationBar: BottomNav(
-        child: WSubmitBtn(
-          child: const Text('Pay Now'),
-          onPressed: () => showPayDone(context),
-        ),
+      bottomNavigationBar: BottomNav.submit(
+        child: const Text('Pay Now'),
+        onPressed: () => showPayDone(context),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),

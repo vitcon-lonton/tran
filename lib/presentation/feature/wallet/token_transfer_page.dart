@@ -33,8 +33,9 @@ class TokenTransferPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScaffoldBG(
       appBar: AppBar(title: Text('Token Transfer')),
-      bottomNavigationBar: BottomNav(
-        child: WSubmitBtn(child: const Text('Confirm'), onPressed: () {}),
+      bottomNavigationBar: BottomNav.submit(
+        child: const Text('Confirm'),
+        onPressed: () {},
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),

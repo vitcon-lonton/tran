@@ -18,8 +18,9 @@ class UserProfilePage extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: BottomNav(
-        child: WSubmitBtn(child: Text('Edit Profile'), onPressed: () {}),
+      bottomNavigationBar: BottomNav.submit(
+        child: Text('Edit Profile'),
+        onPressed: () {},
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),
