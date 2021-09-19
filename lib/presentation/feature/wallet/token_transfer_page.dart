@@ -35,7 +35,7 @@ class TokenTransferPage extends StatelessWidget {
       appBar: AppBar(title: Text('Token Transfer')),
       bottomNavigationBar: BottomNav.submit(
         child: const Text('Confirm'),
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).pop(),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),

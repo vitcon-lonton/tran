@@ -7,7 +7,7 @@ class CreateWalletPage extends StatelessWidget {
       appBar: AppBar(title: Text('Create Wallet')),
       bottomNavigationBar: BottomNav.submit(
         child: const Text('Next'),
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).pushNamed(Routes.createSeed),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),

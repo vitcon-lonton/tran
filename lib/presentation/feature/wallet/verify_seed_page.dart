@@ -7,7 +7,9 @@ class VerifySeedPage extends StatelessWidget {
       appBar: AppBar(title: Text('Create Wallet')),
       bottomNavigationBar: BottomNav.submit(
         child: const Text('Done'),
-        onPressed: () {},
+        onPressed: () => Navigator.of(
+          context,
+        ).popUntil((route) => route.settings.name == Routes.home),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),

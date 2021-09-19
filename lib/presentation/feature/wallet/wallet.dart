@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:tranme/presentation/theme/theme.dart';
+import 'package:tranme/routes.dart';
 
 part 'create_seed_page.dart';
 part 'create_wallet_page.dart';

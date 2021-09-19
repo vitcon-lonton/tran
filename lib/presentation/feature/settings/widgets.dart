@@ -5,6 +5,8 @@ class UserSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final nav = Navigator.of(context, rootNavigator: true);
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -19,9 +21,13 @@ class UserSettings extends StatelessWidget {
             radius: kBorderRadius.copyWith(
                 bottomLeft: Radius.zero, bottomRight: Radius.zero),
             padding: EdgeInsets.only(top: kSpaceXS),
+            onPressed: () => nav.pushNamed(Routes.changePW),
           ),
           const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
-          OptionTile('Add Friend'),
+          OptionTile(
+            'Add Friend',
+            onPressed: () => nav.pushNamed(Routes.addFriendForm),
+          ),
           const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
           OptionTile('Language'),
           const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
@@ -51,6 +57,8 @@ class PilotSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final nav = Navigator.of(context, rootNavigator: true);
+
     return OptionsView(
       options: [
         OptionTile(
@@ -59,19 +67,24 @@ class PilotSettings extends StatelessWidget {
           radius: kBorderRadius.copyWith(
               bottomLeft: Radius.zero, bottomRight: Radius.zero),
           padding: EdgeInsets.only(top: kSpaceXS),
-          onPressed: () {
-            Navigator.of(context).pushNamed(Routes.createWallet);
-          },
+          onPressed: () => nav.pushNamed(Routes.createWallet),
         ),
-        OptionTile('Transfer Token'),
-        OptionTile('Transfer History'),
-        OptionTile('Shop'),
+        OptionTile(
+          'Transfer Token',
+          onPressed: () => nav.pushNamed(Routes.tokenTransfer),
+        ),
+        OptionTile(
+          'Transfer History',
+          onPressed: () => nav.pushNamed(Routes.transactionHistory),
+        ),
+        OptionTile('Shop', onPressed: () => nav.pushNamed(Routes.shop)),
         OptionTile(
           'Send Gift',
           height: 55,
           radius: kBorderRadius.copyWith(
               topLeft: Radius.zero, topRight: Radius.zero),
           padding: EdgeInsets.only(bottom: kSpaceXS),
+          onPressed: () => nav.pushNamed(Routes.sendGift),
         ),
       ],
     );

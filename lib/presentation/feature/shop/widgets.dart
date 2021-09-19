@@ -1,7 +1,7 @@
 part of 'shop.dart';
 
-Future showPayDone(BuildContext context) {
-  return showDialog(
+Future<bool?> showPayDone(BuildContext context) {
+  return showDialog<bool>(
     context: context,
     builder: (_) => Column(
       children: [const Spacer(), PayDone(), const Spacer(flex: 2)],
@@ -21,21 +21,26 @@ class Box extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        kImgGift,
-        kVSpaceXXS,
-        Text('$coin COINS', style: TextStyle(fontSize: 12)),
-        kVSpaceXXS,
-        Container(
-          child: Text('\$$price.00', style: TextStyle(fontSize: 12)),
-          padding: EdgeInsets.all(6.0),
-          decoration: BoxDecoration(
-            color: kColorBlue2,
-            borderRadius: BorderRadius.circular(2),
-          ),
-        )
-      ],
+    return Flexible(
+      child: GestureDetector(
+        onTap: () => Navigator.of(context).pushNamed(Routes.myOrder),
+        child: Column(
+          children: [
+            kImgGift,
+            kVSpaceXXS,
+            Text('$coin COINS', style: TextStyle(fontSize: 12)),
+            kVSpaceXXS,
+            Container(
+              child: Text('\$$price.00', style: TextStyle(fontSize: 12)),
+              padding: EdgeInsets.all(6.0),
+              decoration: BoxDecoration(
+                color: kColorBlue2,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
@@ -43,24 +48,17 @@ class Box extends StatelessWidget {
 class Boxes extends StatelessWidget {
   const Boxes({Key? key}) : super(key: key);
 
-  _line() {
-    return Container(
-      height: 2,
-      margin: EdgeInsets.symmetric(horizontal: kSpaceM),
-      decoration: BoxDecoration(
-        color: Color(0xffFF961C),
-        boxShadow: [
-          BoxShadow(blurRadius: 4, offset: Offset(0, 4), color: Colors.black26),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _line(),
+        Divider(
+          height: 0,
+          thickness: 2,
+          indent: kSpaceM,
+          endIndent: kSpaceM,
+          color: Color(0xffFF961C),
+        ),
         kVSpaceL,
         Text(
           'These boxes are limited time sale ONLY!',
@@ -87,7 +85,13 @@ class Boxes extends StatelessWidget {
           ],
         ),
         kVSpaceL,
-        _line(),
+        Divider(
+          height: 0,
+          thickness: 2,
+          indent: kSpaceM,
+          endIndent: kSpaceM,
+          color: Color(0xffFF961C),
+        ),
       ],
     );
   }
@@ -101,7 +105,7 @@ class ShopBG extends StatelessWidget {
     return Stack(
       children: [
         kImgUpBG,
-        Positioned(top: 0, right: 0, bottom: 0, child: kImg1392),
+        Positioned(top: 16, right: 16, bottom: 8, child: kImg1392),
       ],
     );
   }
@@ -110,17 +114,10 @@ class ShopBG extends StatelessWidget {
 class PaymentMethodSelector extends StatelessWidget {
   const PaymentMethodSelector({Key? key}) : super(key: key);
 
-  Widget button(Widget child) {
+  Widget button(Widget child, {VoidCallback? onPressed}) {
     return ButtonTheme(
       child: ElevatedButton(
-        // child: Row(
-        //   children: [
-        //     icon,
-        //     const Spacer(),
-        //     Icon(Icons.radio_button_on_sharp),
-        //   ],
-        // ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: IconTheme(
           child: child,
           data: IconThemeData(color: Colors.black.withOpacity(0.8)),
@@ -208,11 +205,12 @@ class PaymentMethodSelector extends StatelessWidget {
               Icon(Icons.radio_button_unchecked),
             ],
           ),
+          onPressed: () {},
         ),
         kVSpaceM,
-        button(infoCard(kIcVisa)),
+        button(infoCard(kIcVisa), onPressed: () {}),
         kVSpaceM,
-        button(infoCard(kIcMastercard)),
+        button(infoCard(kIcMastercard), onPressed: () {}),
         kVSpaceM,
         button(
           Row(
@@ -222,6 +220,7 @@ class PaymentMethodSelector extends StatelessWidget {
               Text('Add card', style: kBodyBold.copyWith(color: primaryColor)),
             ],
           ),
+          onPressed: () => Navigator.of(context).pushNamed(Routes.addCard),
         ),
       ],
     );
@@ -229,7 +228,8 @@ class PaymentMethodSelector extends StatelessWidget {
 }
 
 class CheckoutButton extends StatelessWidget {
-  const CheckoutButton({Key? key}) : super(key: key);
+  final VoidCallback? onPressed;
+  const CheckoutButton({Key? key, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -276,7 +276,7 @@ class CheckoutButton extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: onPressed,
               child: Container(),
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.zero,
@@ -516,8 +516,8 @@ class PayDone extends StatelessWidget {
                     height: 46,
                     width: double.infinity,
                     child: ElevatedButton(
-                      child: Text('Done'),
-                      onPressed: () => Navigator.of(context).pop(),
+                      child: const Text('Done'),
+                      onPressed: () => Navigator.of(context).pop(true),
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
                         shadowColor: Colors.transparent,

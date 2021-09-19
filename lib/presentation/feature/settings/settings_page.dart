@@ -35,7 +35,10 @@ class _ProfileTile extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       child: ListTile(
-        onTap: () {},
+        onTap: () => Navigator.of(
+          context,
+          rootNavigator: true,
+        ).pushNamed(Routes.userProfile),
         title: Text(
           'David Tran',
           style: kTitleBold.copyWith(fontSize: 18, color: primaryColor),

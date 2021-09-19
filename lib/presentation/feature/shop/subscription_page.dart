@@ -9,7 +9,7 @@ class SubscriptionPage extends StatelessWidget {
       appBar: AppBar(title: Text('Subscription')),
       bottomNavigationBar: BottomNav.submit(
         child: const Text('Checkout'),
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).pushNamed(Routes.myCartSubs),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),
@@ -26,6 +26,8 @@ class SubscriptionPage extends StatelessWidget {
                     colorScheme: ColorScheme.light(primary: kColorOrange),
                   ),
                   child: TextFormField(
+                    readOnly: true,
+                    initialValue: '\$10',
                     textAlign: TextAlign.center,
                     style: kTitleBold.copyWith(fontSize: 28),
                     decoration: InputDecoration(

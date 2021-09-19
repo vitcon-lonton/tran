@@ -6,14 +6,13 @@ final kIcApp = Image.asset('assets/icons/ic_app.png');
 final kIcApple = Image.asset('assets/icons/ic_apple.png');
 final kIcCamera = Image.asset('assets/icons/ic_camera.png');
 final kIcCar = Image.asset('assets/icons/ic_car.png');
+final kIcDelete = Image.asset('assets/icons/ic_delete.png');
 final kIcDistance = Image.asset('assets/icons/ic_distance.png');
 final kIcDone = Image.asset('assets/icons/ic_done.png');
 final kIcFB = Image.asset('assets/icons/ic_fb.png');
 final kIcGoogle = Image.asset('assets/icons/ic_google.png');
 final kIcHome2 = Image.asset('assets/icons/ic_home_2.png');
 final kIcHome = Image.asset('assets/icons/ic_home.png');
-// final kIcHome = Image.asset('assets/icons/ic_home.png',
-//     height: 50, width: 50, fit: BoxFit.cover);
 final kIcIdea = Image.asset('assets/icons/ic_idea.png');
 final kIcListOutline = Image.asset('assets/icons/ic_list_outline.png');
 final kIcList = Image.asset('assets/icons/ic_list.png');

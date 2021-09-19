@@ -7,20 +7,21 @@ class UserProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScaffoldBG(
       appBar: AppBar(
-        title: Text('Profile'),
         bottom: _Bottom(),
+        title: Text('Profile'),
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData.fallback(),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.qr_code_scanner_rounded),
-          )
+            icon: kIcQR,
+            onPressed: () {
+              Navigator.of(context).pushNamed(Routes.profileQRCode);
+            },
+          ),
         ],
       ),
       bottomNavigationBar: BottomNav.submit(
         child: Text('Edit Profile'),
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).pushNamed(Routes.editProfile),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),

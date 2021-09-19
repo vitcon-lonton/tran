@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Tran ME',
       // showPerformanceOverlay: true,
       debugShowCheckedModeBanner: false,
+      initialRoute: Routes.initRoute,
       onGenerateRoute: Routes.onGenerateRoute,
       theme: ThemeData(
         fontFamily: kFontName,

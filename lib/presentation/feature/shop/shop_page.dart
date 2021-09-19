@@ -11,7 +11,10 @@ class ShopPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),
         child: Column(
           children: [
-            ShopBG(),
+            InkWell(
+              child: ShopBG(),
+              onTap: () => Navigator.of(context).pushNamed(Routes.subscription),
+            ),
             kVSpaceS,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: kSpaceL),

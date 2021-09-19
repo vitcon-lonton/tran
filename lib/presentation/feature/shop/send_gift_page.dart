@@ -33,8 +33,8 @@ class SendGiftPage extends StatelessWidget {
     return ScaffoldBG(
       appBar: AppBar(title: Text('Send Gift')),
       bottomNavigationBar: BottomNav.submit(
-        onPressed: () {},
         child: const Text('Send'),
+        onPressed: () => Navigator.of(context).pop(),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),
@@ -51,7 +51,10 @@ class SendGiftPage extends StatelessWidget {
             input(
               onChanged: (v) {},
               label: 'Your destination wallet address',
-              icon: IconButton(onPressed: () {}, icon: kIcCamera),
+              icon: IconButton(
+                icon: kIcCamera,
+                onPressed: () => Navigator.of(context).pushNamed(Routes.scanQR),
+              ),
               suffixIcon: IconButton(
                 onPressed: () {},
                 icon: Icon(Icons.keyboard_arrow_down_rounded),

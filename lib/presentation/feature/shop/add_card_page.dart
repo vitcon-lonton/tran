@@ -37,16 +37,18 @@ class _AddCardPageState extends State<AddCardPage> {
         title: Text('Add Card'),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: kIcCamera,
             // splashRadius: 28,
+            icon: kIcCamera,
+            onPressed: () {
+              Navigator.of(context).pushNamed(Routes.scanCard);
+            },
           ),
           kHSpaceXS,
         ],
       ),
       bottomNavigationBar: BottomNav.submit(
         child: const Text('Save'),
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).pop(),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),

@@ -8,29 +8,16 @@ class NotificationPage extends StatelessWidget {
     return ScaffoldBG(
       appBar: AppBar(
         title: Text('Notification'),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.delete_forever_outlined),
-          )
-        ],
+        actions: [IconButton(icon: kIcDelete, onPressed: () {})],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          kVSpaceXS,
-          Expanded(
-            child: ListView.separated(
-              shrinkWrap: true,
-              itemCount: notifications.length,
-              separatorBuilder: (_, i) => kVSpaceM,
-              itemBuilder: (_, i) => NotificationTile(notifications[i]),
-              padding: EdgeInsets.symmetric(
-                horizontal: kSpaceM,
-              ).copyWith(bottom: kSpaceM, top: kSpaceXS),
-            ),
-          ),
-        ],
+      body: ListView.separated(
+        shrinkWrap: true,
+        itemCount: notifications.length,
+        separatorBuilder: (_, i) => kVSpaceM,
+        itemBuilder: (_, i) => NotificationTile(notifications[i]),
+        padding: EdgeInsets.symmetric(
+          horizontal: kSpaceM,
+        ).copyWith(bottom: kSpaceL, top: kSpaceM),
       ),
     );
   }

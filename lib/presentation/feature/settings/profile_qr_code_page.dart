@@ -12,6 +12,7 @@ class ProfileQRCodePage extends StatelessWidget {
         titleTextStyle: AppBarTheme.of(
           context,
         ).titleTextStyle!.copyWith(color: Colors.white),
+        iconTheme: IconThemeData.fallback().copyWith(color: Colors.white),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),

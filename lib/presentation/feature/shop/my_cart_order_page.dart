@@ -9,7 +9,13 @@ class MyCartOrderPage extends StatelessWidget {
       appBar: AppBar(title: Text('My Cart')),
       bottomNavigationBar: BottomNav.submit(
         child: const Text('Pay Now'),
-        onPressed: () => showPayDone(context),
+        onPressed: () async {
+          final res = await showPayDone(context);
+          if (res != true) return;
+
+          return Navigator.of(context)
+              .popUntil((route) => route.settings.name == Routes.shop);
+        },
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),
