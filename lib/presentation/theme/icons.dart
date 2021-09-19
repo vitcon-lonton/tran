@@ -19,6 +19,7 @@ final kIcList = Image.asset('assets/icons/ic_list.png');
 final kIcMastercard = Image.asset('assets/icons/ic_mastercard.png');
 final kIcNewsOutline = Image.asset('assets/icons/ic_news_outline.png');
 final kIcNewsSolid = Image.asset('assets/icons/ic_news_solid.png');
+final kIcNotifications = Image.asset('assets/icons/ic_notifications.png');
 final kIcOutline = Image.asset('assets/icons/ic_outline.png');
 final kIcPaypal = Image.asset('assets/icons/ic_paypal.png');
 final kIcQR = Image.asset('assets/icons/ic_qr.png');

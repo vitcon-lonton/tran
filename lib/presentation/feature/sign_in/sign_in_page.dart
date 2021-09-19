@@ -8,6 +8,10 @@ class SignInPage extends StatelessWidget {
     );
   }
 
+  login(BuildContext context) {
+    Navigator.of(context).pushNamed(Routes.home);
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScaffoldBG(
@@ -29,22 +33,22 @@ class SignInPage extends StatelessWidget {
                   kVSpaceL,
                   WSIIconButton(
                     icon: kIcFB,
-                    onPressed: () {},
                     text: 'SIGN IN with Facebook',
+                    onPressed: () => login(context),
                   ),
                   kVSpaceM,
                   WSIIconButton(
                     icon: kIcGoogle,
-                    onPressed: () {},
                     text: 'SIGN IN with Google',
+                    onPressed: () => login(context),
                     // icon: Icon(Icons.facebook),
                   ),
                   kVSpaceM,
                   if (Platform.isIOS) ...[
                     WSIIconButton(
                       icon: kIcApple,
-                      onPressed: () {},
                       text: 'SIGN IN with Apple ID',
+                      onPressed: () => login(context),
                     ),
                     kVSpaceS,
                   ] else

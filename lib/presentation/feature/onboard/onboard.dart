@@ -9,12 +9,16 @@ class OnboardPage extends StatefulWidget {
 }
 
 class _OnboardPageState extends State<OnboardPage> {
-  var index = 0;
-  var _raw = <Widget>[];
+  late var _raw;
+  late var _index;
+  // late ScrollController _controller;
 
   @override
   void initState() {
     super.initState();
+    // _controller = ScrollController();
+
+    _index = 0;
     _raw = [
       raw(
         kImgJoggingBro,
@@ -44,12 +48,13 @@ class _OnboardPageState extends State<OnboardPage> {
             kVSpaceXL,
             Row(
               children: [
-                if (index != 2)
+                if (_index != 2)
                   TextButton(onPressed: onDone, child: Text('Skip')),
                 Spacer(),
                 TextButton(
-                  child: Text(index == 2 ? 'Done' : 'Next'),
-                  onPressed: index == 2 ? onDone : () => changeIndex(index + 1),
+                  child: Text(_index == 2 ? 'Done' : 'Next'),
+                  onPressed:
+                      _index == 2 ? onDone : () => changeIndex(_index + 1),
                 ),
               ],
             ),
@@ -62,7 +67,7 @@ class _OnboardPageState extends State<OnboardPage> {
                 showNextButton: false,
                 onChange: (value) {
                   setState(() {
-                    index = value;
+                    _index = value;
                   });
                 },
                 globalBackgroundColor: Colors.transparent,
@@ -84,11 +89,11 @@ class _OnboardPageState extends State<OnboardPage> {
     );
   }
 
-  onDone() => Navigator.pushNamed(context, Routes.login);
+  onDone() => Navigator.pushReplacementNamed(context, Routes.login);
 
   changeIndex(int value) {
     setState(() {
-      index = value;
+      _index = value;
     });
   }
 

@@ -33,7 +33,7 @@ class ChangePWPage extends StatelessWidget {
                 child: WSubmitBtn(
                   child: const Text('Save'),
                   radius: BorderRadius.all(Radius.circular(6)),
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).pop(),
                 ),
               ),
               kVSpaceXL,

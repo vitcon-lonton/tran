@@ -48,9 +48,12 @@ class ActivityAB extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.notifications_none_rounded),
-        )
+          icon: kIcNotifications,
+          onPressed: () => Navigator.of(
+            context,
+            rootNavigator: true,
+          ).pushNamed(Routes.notification),
+        ),
       ],
     );
   }

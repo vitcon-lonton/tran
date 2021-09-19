@@ -111,7 +111,8 @@ class SignInForm extends StatelessWidget {
               padding(
                 WSubmitBtn(
                   child: const Text('Sign in'),
-                  onPressed: context.read<SignInCubit>().emailSubmitted,
+                  onPressed: () => Navigator.of(context).pushNamed(Routes.home),
+                  // onPressed: context.read<SignInCubit>().emailSubmitted,
                 ),
               ),
             ],

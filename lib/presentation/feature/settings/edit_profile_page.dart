@@ -113,7 +113,7 @@ class EditProfilePage extends StatelessWidget {
               ),
               kVSpaceXXL,
               WSubmitBtn(
-                child: const Text('Done'),
+                child: const Text('Save'),
                 onPressed: () => Navigator.of(context).pop(),
               ),
               kVSpaceXL,

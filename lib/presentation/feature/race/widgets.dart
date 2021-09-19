@@ -8,7 +8,9 @@ class FriendTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context, rootNavigator: true).pushNamed(Routes.raceDetail);
+      },
       child: Ink(
         padding: EdgeInsets.symmetric(horizontal: kSpaceS, vertical: kSpaceS),
         child: Row(

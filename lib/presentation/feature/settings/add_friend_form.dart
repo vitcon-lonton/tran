@@ -17,7 +17,7 @@ class AddFriendForm extends StatelessWidget {
             children: [
               kVSpaceM,
               Text(
-                'To add someone to your Friend List, Enter their Code ID',
+                'To add someone to your Friend List,\n Enter their Code ID',
                 textAlign: TextAlign.center,
                 style: kHeadline1.copyWith(fontSize: 16),
               ),
@@ -32,7 +32,7 @@ class AddFriendForm extends StatelessWidget {
                 child: WSubmitBtn(
                   child: const Text('Send'),
                   radius: BorderRadius.all(Radius.circular(6)),
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).pop(),
                 ),
               ),
               kVSpaceXL,

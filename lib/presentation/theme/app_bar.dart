@@ -51,9 +51,12 @@ class TabHeader extends StatelessWidget implements PreferredSizeWidget {
           kTitle1.copyWith(fontSize: 28, fontWeight: FontWeight.w700),
       actions: [
         IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.notifications_none_rounded),
-        )
+          icon: kIcNotifications,
+          onPressed: () => Navigator.of(
+            context,
+            rootNavigator: true,
+          ).pushNamed(Routes.notification),
+        ),
       ],
     );
   }

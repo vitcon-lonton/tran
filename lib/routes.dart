@@ -21,10 +21,10 @@ import 'presentation/feature/wallet/wallet.dart';
 class Routes {
   Routes._();
 
-  static const String initRoute = home;
+  static const String initRoute = flash;
 
-  static const home = '/';
-  static const flash = '/flash';
+  static const flash = '/';
+  static const home = '/home';
   static const onboard = '/onboard';
   static const login = '/login';
   static const register = '/register';

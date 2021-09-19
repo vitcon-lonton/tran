@@ -11,8 +11,8 @@ class _FlashPageState extends State<FlashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 1))
-        .then((value) => Navigator.of(context).pushNamed(Routes.onboard));
+    Future.delayed(Duration(seconds: 1)).then(
+        (value) => Navigator.of(context).pushReplacementNamed(Routes.onboard));
   }
 
   @override
