@@ -7,7 +7,6 @@ class EventsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      initialIndex: 1,
       child: Scaffold(
         appBar: TabHeader(bottom: _TabBar(), title: Text('Events')),
         body: TabBarView(children: [StandingTab(), InformationTab()]),
@@ -22,12 +21,34 @@ class _TabBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: kSpaceS),
-      child: TabBar(
-        tabs: [Tab(text: 'Standings'), Tab(text: 'Information')],
-      ),
+    return Stack(
+      fit: StackFit.passthrough,
+      alignment: Alignment.bottomCenter,
+      children: [
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: kSpaceM),
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(color: kColorGrey2, width: 1.0),
+            ),
+          ),
+        ),
+        TabBar(
+          padding: EdgeInsets.symmetric(horizontal: kSpaceM),
+          tabs: [
+            Tab(text: 'Standings'),
+            Tab(text: 'Information'),
+          ],
+          // indicatorPadding: EdgeInsets.only(left: kSpaceM),
+          // labelPadding: ,
+          // indicatorPadding: ,
+
+          // indicator: UnderlineTabIndicator(
+          //     // borderSide: BorderSide(),
+          //     // insets: EdgeInsets.symmetric(horizontal: kSpaceM),
+          //     ),
+        ),
+      ],
     );
   }
 }

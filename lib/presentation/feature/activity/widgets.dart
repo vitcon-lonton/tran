@@ -71,7 +71,11 @@ class SessionActivity extends StatelessWidget {
   Widget group(String title, String value) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [Text(title), kVSpaceXXS, Text(value)],
+      children: [
+        Text(title),
+        kVSpaceXXS,
+        Text(value, style: kBodyBold.copyWith(color: Colors.white)),
+      ],
     );
   }
 
@@ -93,7 +97,8 @@ class SessionActivity extends StatelessWidget {
                 flex: 3,
                 child: Column(
                   children: [
-                    Text('Session Activity'),
+                    Text('Session Activity',
+                        style: kBodyBold.copyWith(color: Colors.white)),
                     kVSpaceS,
                     statusIcons[status] ?? kSpaceZero
                   ],
@@ -143,7 +148,7 @@ class SessionActivity extends StatelessWidget {
 }
 
 class ActivitySelector extends StatefulWidget {
-  final Function(ActivityType)? onChanged;
+  final Function(ActivityType?)? onChanged;
 
   ActivitySelector({Key? key, this.onChanged}) : super(key: key);
 
@@ -156,10 +161,17 @@ class _ActivitySelectorState extends State<ActivitySelector> {
 
   Widget button(ActivityType? type) {
     final active = _type == type;
+
     return Expanded(
       flex: 4,
       child: TextButton(
-        onPressed: () => setState(() => _type = type),
+        onPressed: () {
+          setState(() {
+            _type = active ? null : type;
+          });
+          if (widget.onChanged == null) return;
+          widget.onChanged!(_type);
+        },
         style: TextButton.styleFrom(
           padding: EdgeInsets.fromLTRB(10, 12, 10, 12),
           backgroundColor: active ? kColorGreen : kColorRed2,
@@ -184,16 +196,29 @@ class _ActivitySelectorState extends State<ActivitySelector> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          button(ActivityType.walking),
-          const Spacer(),
-          button(ActivityType.cycling),
-          const Spacer(),
-          button(ActivityType.vehicle),
-        ],
-      ),
+    return Column(
+      children: [
+        Center(
+          child: Text(
+            _type == null
+                ? 'Choose and start activity tracking'
+                : 'Switch activity type by clicking buttons below ',
+            style: TextStyle(color: Colors.black54),
+          ),
+        ),
+        kVSpaceS,
+        Container(
+          child: Row(
+            children: [
+              button(ActivityType.walking),
+              const Spacer(),
+              button(ActivityType.cycling),
+              const Spacer(),
+              button(ActivityType.vehicle),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -221,7 +246,7 @@ class ActivitySTT extends StatelessWidget {
       child: Text(text ?? '', style: TextStyle(color: color, fontSize: 12)),
       padding: EdgeInsets.symmetric(vertical: kSpaceS, horizontal: kSpaceM),
       decoration: BoxDecoration(
-        color: color?.withOpacity(0.1) ?? Colors.white,
+        color: color?.withOpacity(0.1) ?? Colors.transparent,
       ),
     );
   }
@@ -236,7 +261,7 @@ class _Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: child,
-      padding: EdgeInsets.symmetric(vertical: kSpaceL, horizontal: kSpaceM),
+      padding: EdgeInsets.symmetric(vertical: kSpaceS, horizontal: kSpaceM),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: kBorderRadius,
@@ -292,51 +317,75 @@ class WeeklyActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _Wrapper(
-      Column(
-        children: [
-          DefaultTextStyle(
-            style: kTitleBold.copyWith(color: kColorPrimary, fontSize: 14),
-            child: Row(
-              children: [
-                Text('Mon'),
-                const Spacer(),
-                Text('Tue'),
-                const Spacer(),
-                Text('Wed'),
-                const Spacer(),
-                Text('Thu'),
-                const Spacer(),
-                Text('Fri'),
-                const Spacer(),
-                Text('Sat'),
-                const Spacer(),
-                Text('Sun'),
-              ],
+      DefaultTabController(
+        length: 7,
+        child: Column(
+          children: [
+            Container(
+              height: 36,
+              child: Stack(
+                fit: StackFit.passthrough,
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(color: kColorGrey2, width: 1.0),
+                      ),
+                    ),
+                  ),
+                  TabBar(
+                    labelColor: kColorPrimary,
+                    padding: EdgeInsets.zero,
+                    labelPadding: EdgeInsets.zero,
+                    indicatorPadding: EdgeInsets.zero,
+                    labelStyle: kTitleBold.copyWith(fontSize: 14),
+                    unselectedLabelStyle: kTitleBold.copyWith(fontSize: 14),
+                    tabs: [
+                      Tab(text: 'Mon'),
+                      Tab(text: 'Tue'),
+                      Tab(text: 'Wed'),
+                      Tab(text: 'Thu'),
+                      Tab(text: 'Fri'),
+                      Tab(text: 'Sat'),
+                      Tab(text: 'Sun'),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          kVSpaceXS,
-          Divider(),
-          kVSpaceXS,
-          Row(
-            children: [
-              _Column(
-                'Walking',
-                values: ['D 763.17 m', 'C 58.82 cal', 'T 7.6317'],
+            kVSpaceXS,
+            kVSpaceXS,
+            Container(
+              height: 80,
+              child: TabBarView(
+                children: [tab(), tab(), tab(), tab(), tab(), tab(), tab()],
               ),
-              const Spacer(),
-              _Column(
-                'Cycling',
-                values: ['D 0.00 m', 'C 0.00 cal', 'T 0.000'],
-              ),
-              const Spacer(),
-              _Column(
-                'Vehicle',
-                values: ['D 20.47 km', 'C 53.04 cal', 'T 2.0466'],
-              ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget tab() {
+    return Row(
+      children: [
+        _Column(
+          'Walking',
+          values: ['D 763.17 m', 'C 58.82 cal', 'T 7.6317'],
+        ),
+        const Spacer(),
+        _Column(
+          'Cycling',
+          values: ['D 0.00 m', 'C 0.00 cal', 'T 0.000'],
+        ),
+        const Spacer(),
+        _Column(
+          'Vehicle',
+          values: ['D 20.47 km', 'C 53.04 cal', 'T 2.0466'],
+        ),
+      ],
     );
   }
 }
@@ -475,11 +524,12 @@ class WarningBox extends StatelessWidget {
           kVSpaceL,
           kIcCar,
           kVSpaceL,
-          Text('Warning!'),
-          kVSpaceXS,
-          Text('You\'re going to fast'),
-          kVSpaceL,
-          Text('tran ME should be played fairly'),
+          Text('Warning!', style: kTitleBold.copyWith(fontSize: 24)),
+          Text('You\'re going to fast',
+              style: kTitleBold.copyWith(fontSize: 18, color: kColorError)),
+          kVSpaceM,
+          Text('tran ME should be played fairly',
+              style: kBodyMedium.copyWith(fontSize: 16)),
           kVSpaceL,
           Container(
             height: 48,

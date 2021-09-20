@@ -21,13 +21,14 @@ import 'presentation/feature/wallet/wallet.dart';
 class Routes {
   Routes._();
 
-  static const String initRoute = flash;
+  static const String initRoute = home;
 
-  static const flash = '/';
-  static const home = '/home';
+  static const home = '/';
+  static const flash = '/flash';
   static const onboard = '/onboard';
   static const login = '/login';
   static const register = '/register';
+  static const verify = '/verify';
   static const profile = '/profile';
   static const activity = '/activity';
   static const events = '/events';
@@ -78,6 +79,9 @@ class Routes {
         break;
       case register:
         page = SignUpPage();
+        break;
+      case verify:
+        page = VerifyPage();
         break;
       case profile:
         page = ProfilePage();

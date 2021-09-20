@@ -12,7 +12,7 @@ const kColorGrey7 = Color(0xffFAFAFA);
 
 const kColorBlack = Colors.black;
 const kColorPrimary = Color(0xff244495);
-const kColorSecondary = Colors.red;
+// const kColorSecondary = Colors.red;
 const kColorAccentBlue = Color(0xff244495);
 const kColorBlue2 = Color.fromRGBO(194, 214, 232, 0.5);
 const kColorBlue3 = Color.fromRGBO(224, 224, 224, 0.5);

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:tranme/presentation/theme/theme.dart';
+import 'package:tranme/routes.dart';
 
 class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return WScaffold(
+      bottomNavigationBar: BottomNav.submit(
+        child: const Text('Continue'),
+        onPressed: () => Navigator.of(context).pushNamed(Routes.verify),
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),
         child: Form(
@@ -30,7 +35,7 @@ class SignUpPage extends StatelessWidget {
                 onChanged: (value) {},
               ),
               kVSpaceL,
-              WSubmitBtn(child: const Text('Continue'), onPressed: () {}),
+              // WSubmitBtn(child: const Text('Continue'), onPressed: () {}),
             ],
           ),
         ),

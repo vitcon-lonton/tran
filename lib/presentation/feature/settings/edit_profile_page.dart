@@ -3,7 +3,7 @@ part of 'settings.dart';
 class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return WScaffold(
       appBar: AppBar(
         title: Text('Profile'),
         bottom: PreferredSize(
@@ -16,12 +16,12 @@ class EditProfilePage extends StatelessWidget {
                   width: 100,
                   height: 100,
                   child: CircleAvatar(
-                    child: FlutterLogo(),
+                    child: kIcApp,
                     backgroundColor: Colors.white,
                   ),
                   decoration: BoxDecoration(
                     border: Border.fromBorderSide(
-                      kBorderSide.copyWith(color: primaryColor),
+                      kBorderSide.copyWith(color: primaryColor, width: 2),
                     ),
                     borderRadius: BorderRadius.circular(100),
                   ),

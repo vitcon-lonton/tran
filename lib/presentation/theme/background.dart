@@ -38,7 +38,7 @@ class Background extends StatelessWidget {
   }
 }
 
-class ScaffoldBG extends StatelessWidget {
+class WScaffold extends StatelessWidget {
   final Key? key;
   final Widget body;
   final bool gradient;
@@ -47,7 +47,7 @@ class ScaffoldBG extends StatelessWidget {
   final PreferredSizeWidget? appBar;
   final Widget? bottomNavigationBar;
 
-  const ScaffoldBG.raw({
+  const WScaffold.raw({
     this.key,
     required this.body,
     this.appBar,
@@ -57,13 +57,13 @@ class ScaffoldBG extends StatelessWidget {
     this.bottomNavigationBar,
   }) : super(key: key);
 
-  factory ScaffoldBG(
+  factory WScaffold(
       {Key? key,
       bool? scrollable,
       required Widget body,
       PreferredSizeWidget? appBar,
       Widget? bottomNavigationBar}) {
-    return ScaffoldBG.raw(
+    return WScaffold.raw(
       key: key,
       body: body,
       appBar: appBar,
@@ -73,13 +73,13 @@ class ScaffoldBG extends StatelessWidget {
     );
   }
 
-  factory ScaffoldBG.gradient(
+  factory WScaffold.gradient(
       {Key? key,
       bool? scrollable,
       required Widget body,
       PreferredSizeWidget? appBar,
       Widget? bottomNavigationBar}) {
-    return ScaffoldBG.raw(
+    return WScaffold.raw(
         key: key,
         body: body,
         appBar: appBar,
@@ -89,13 +89,13 @@ class ScaffoldBG extends StatelessWidget {
         bottomNavigationBar: bottomNavigationBar);
   }
 
-  factory ScaffoldBG.consumer(
+  factory WScaffold.consumer(
       {Key? key,
       bool? scrollable,
       required Widget body,
       PreferredSizeWidget? appBar,
       Widget? bottomNavigationBar}) {
-    return ScaffoldBG.raw(
+    return WScaffold.raw(
         key: key,
         body: body,
         appBar: appBar,

@@ -32,7 +32,7 @@ class _AddCardPageState extends State<AddCardPage> {
       contentPadding: EdgeInsets.fromLTRB(12, 12, 12, 15),
       hintStyle: kTextInputHint.copyWith(fontSize: 14, color: kColorGrey5),
     );
-    return ScaffoldBG(
+    return WScaffold(
       appBar: AppBar(
         title: Text('Add Card'),
         actions: [

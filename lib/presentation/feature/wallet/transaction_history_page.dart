@@ -3,7 +3,7 @@ part of 'wallet.dart';
 class TransactionHistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG.consumer(
+    return WScaffold.consumer(
       appBar: AppBar(title: Text('Transaction History')),
       body: ListView.separated(
         itemCount: 10,

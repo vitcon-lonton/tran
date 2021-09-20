@@ -5,7 +5,7 @@ class UserProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return WScaffold(
       appBar: AppBar(
         bottom: _Bottom(),
         title: Text('Profile'),
@@ -51,13 +51,10 @@ class _Bottom extends StatelessWidget implements PreferredSizeWidget {
           Container(
             width: 100,
             height: 100,
-            child: CircleAvatar(
-              child: FlutterLogo(size: 70),
-              backgroundColor: Colors.white,
-            ),
+            child: CircleAvatar(child: kIcApp, backgroundColor: Colors.white),
             decoration: BoxDecoration(
               border: Border.fromBorderSide(
-                kBorderSide.copyWith(color: primaryColor),
+                kBorderSide.copyWith(color: primaryColor, width: 2),
               ),
               borderRadius: BorderRadius.circular(100),
             ),

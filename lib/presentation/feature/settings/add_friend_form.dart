@@ -3,7 +3,7 @@ part of 'settings.dart';
 class AddFriendForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG.gradient(
+    return WScaffold.gradient(
       appBar: AppBar(
         bottom: PreferredSize(
           child: kImgPana,

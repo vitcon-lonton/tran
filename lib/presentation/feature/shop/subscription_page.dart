@@ -5,7 +5,7 @@ class SubscriptionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return WScaffold(
       appBar: AppBar(title: Text('Subscription')),
       bottomNavigationBar: BottomNav.submit(
         child: const Text('Checkout'),

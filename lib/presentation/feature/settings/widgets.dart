@@ -36,7 +36,10 @@ class UserSettings extends StatelessWidget {
             width: double.infinity,
             child: TextButton(
               onPressed: () {},
-              child: Text('Log Out'),
+              child: Text(
+                'Log Out',
+                style: kBTNTitle.copyWith(color: kColorPrimary, fontSize: 14),
+              ),
               style: TextButton.styleFrom(
                 padding: EdgeInsets.zero,
                 shape: RoundedRectangleBorder(
@@ -226,11 +229,8 @@ class UserQRCode extends StatelessWidget {
             leading: Container(
               width: 55,
               height: 55,
-              padding: EdgeInsets.all(2.0),
-              child: CircleAvatar(
-                child: FlutterLogo(),
-                backgroundColor: Colors.white,
-              ),
+              padding: EdgeInsets.all(8.0),
+              child: CircleAvatar(child: kIcApp, backgroundColor: Colors.white),
               decoration: BoxDecoration(
                 border: Border.fromBorderSide(
                   kBorderSide.copyWith(color: primaryColor),

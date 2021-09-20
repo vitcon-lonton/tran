@@ -39,19 +39,15 @@ class _ProfileTile extends StatelessWidget implements PreferredSizeWidget {
           context,
           rootNavigator: true,
         ).pushNamed(Routes.userProfile),
-        title: Text(
-          'David Tran',
-          style: kTitleBold.copyWith(fontSize: 18, color: primaryColor),
-        ),
         subtitle: Text('support@3co.network'),
+        title: Text('David Tran',
+            style: kTitleBold.copyWith(fontSize: 18, color: primaryColor)),
+        trailing: Icon(Icons.chevron_right_outlined, color: primaryColor),
         leading: Container(
           width: 55,
           height: 55,
-          padding: EdgeInsets.all(2.0),
-          child: CircleAvatar(
-            child: FlutterLogo(),
-            backgroundColor: Colors.white,
-          ),
+          padding: EdgeInsets.all(8.0),
+          child: CircleAvatar(child: kIcApp, backgroundColor: Colors.white),
           decoration: BoxDecoration(
             border: Border.fromBorderSide(
               kBorderSide.copyWith(color: primaryColor),
@@ -59,7 +55,6 @@ class _ProfileTile extends StatelessWidget implements PreferredSizeWidget {
             borderRadius: BorderRadius.circular(100),
           ),
         ),
-        trailing: Icon(Icons.chevron_right_outlined, color: primaryColor),
       ),
     );
   }

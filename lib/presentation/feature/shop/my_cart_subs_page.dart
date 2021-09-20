@@ -5,7 +5,7 @@ class MyCartSubsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return WScaffold(
       appBar: AppBar(title: Text('My Cart')),
       bottomNavigationBar: BottomNav.submit(
         child: const Text('Pay Now'),

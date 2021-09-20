@@ -13,16 +13,20 @@ class SendGiftPage extends StatelessWidget {
       children: [
         Row(
           children: [
+            kHSpaceM,
             Text(label, style: kTextInputLabel),
             const Spacer(),
-            icon ?? kSpaceZero,
+            ...[icon ?? kSpaceZero, kHSpaceXXS],
           ],
         ),
         kVSpaceXS,
-        WTextInput(
-          onChanged: onChanged,
-          suffixIcon: suffixIcon,
-          initialValue: initialValue,
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: kSpaceM),
+          child: WTextInput(
+            onChanged: onChanged,
+            suffixIcon: suffixIcon,
+            initialValue: initialValue,
+          ),
         )
       ],
     );
@@ -30,14 +34,13 @@ class SendGiftPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return WScaffold(
       appBar: AppBar(title: Text('Send Gift')),
       bottomNavigationBar: BottomNav.submit(
         child: const Text('Send'),
         onPressed: () => Navigator.of(context).pop(),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: kSpaceM),
         child: Column(
           children: [
             kVSpaceM,

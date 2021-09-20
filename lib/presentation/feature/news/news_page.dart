@@ -5,6 +5,8 @@ class NewsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final news = News.generated();
+
     return Scaffold(
       appBar: TabHeader(title: Text('News')),
       body: Column(
@@ -13,9 +15,9 @@ class NewsPage extends StatelessWidget {
           kVSpaceXS,
           Expanded(
             child: ListView.builder(
-              itemCount: 10,
               shrinkWrap: true,
-              itemBuilder: (_, i) => NewsTile(),
+              itemCount: news.length,
+              itemBuilder: (_, i) => NewsTile(news[i]),
               padding: EdgeInsets.only(bottom: kSpaceM, top: kSpaceXS),
             ),
           ),

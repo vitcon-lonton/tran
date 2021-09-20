@@ -3,7 +3,7 @@ part of 'wallet.dart';
 class CreateSeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG.consumer(
+    return WScaffold.consumer(
       appBar: AppBar(title: Text('Create Wallet')),
       bottomNavigationBar: BottomNav.submit(
         child: const Text('Create'),

@@ -3,7 +3,7 @@ part of 'settings.dart';
 class ResetPWPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG.gradient(
+    return WScaffold.gradient(
       appBar: AppBar(title: Text('Reset Password')),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceXL),

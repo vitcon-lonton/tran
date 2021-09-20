@@ -5,7 +5,7 @@ class ShopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return WScaffold(
       appBar: AppBar(title: Text('Shop')),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),

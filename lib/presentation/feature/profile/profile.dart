@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tranme/presentation/theme/theme.dart';
+import 'package:tranme/routes.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return WScaffold(
+      bottomNavigationBar: BottomNav.submit(
+        child: const Text('Done'),
+        onPressed: () {
+          Navigator.of(
+            context,
+          ).pushNamedAndRemoveUntil(Routes.login, (route) => false);
+        },
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceL),
         child: Form(
@@ -50,7 +59,7 @@ class ProfilePage extends StatelessWidget {
               ),
               kVSpaceS,
               kVSpaceXXL,
-              WSubmitBtn(child: const Text('Done'), onPressed: () {}),
+              // WSubmitBtn(child: const Text('Done'), onPressed: () {}),
             ],
           ),
         ),

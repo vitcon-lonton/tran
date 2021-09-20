@@ -17,7 +17,7 @@ class _FlashPageState extends State<FlashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return WScaffold(
       body: Container(
         child: Column(
           children: [

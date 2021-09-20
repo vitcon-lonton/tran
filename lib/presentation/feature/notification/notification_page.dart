@@ -5,7 +5,7 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final notifications = Notification.generated();
 
-    return ScaffoldBG(
+    return WScaffold(
       appBar: AppBar(
         title: Text('Notification'),
         actions: [IconButton(icon: kIcDelete, onPressed: () {})],

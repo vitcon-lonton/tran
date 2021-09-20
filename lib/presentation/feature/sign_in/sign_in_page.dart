@@ -14,7 +14,7 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldBG(
+    return WScaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -57,7 +57,8 @@ class SignInPage extends StatelessWidget {
               ),
             ),
             InkWell(
-              child: Text('Don’t have an account? Sign up now!'),
+              child: Text('Don’t have an account? Sign up now!',
+                  style: TextStyle(color: kColorPrimary)),
               onTap: () {
                 Navigator.pushNamed(context, Routes.register);
               },
