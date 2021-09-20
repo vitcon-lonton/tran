@@ -29,7 +29,24 @@ class UserSettings extends StatelessWidget {
             onPressed: () => nav.pushNamed(Routes.addFriendForm),
           ),
           const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
-          OptionTile('Language'),
+          OptionTile(
+            'Language',
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('English',
+                    style: kCaption2.copyWith(
+                        fontSize: 14,
+                        color: primaryColor,
+                        fontWeight: FontWeight.w400)),
+                kHSpaceXXS,
+                const Icon(
+                  Icons.keyboard_arrow_down_sharp,
+                  size: 20,
+                )
+              ],
+            ),
+          ),
           const Divider(height: 0, indent: kSpaceM, endIndent: kSpaceM),
           Container(
             height: 58,

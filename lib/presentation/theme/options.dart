@@ -3,6 +3,7 @@ part of 'theme.dart';
 class OptionTile extends StatelessWidget {
   final String text;
   final double? height;
+  final Widget? trailing;
   final EdgeInsets? padding;
   final BorderRadius? radius;
   final VoidCallback? onPressed;
@@ -14,6 +15,7 @@ class OptionTile extends StatelessWidget {
     this.radius,
     this.padding,
     this.onPressed,
+    this.trailing,
   }) : super(key: key);
 
   @override
@@ -27,7 +29,10 @@ class OptionTile extends StatelessWidget {
             kHSpaceM,
             Text(text, style: kBodyMedium.copyWith(fontSize: 14)),
             const Spacer(),
-            const Icon(Icons.arrow_forward_ios_outlined, size: 12),
+            IconTheme(
+              data: IconThemeData(size: 12),
+              child: trailing ?? const Icon(Icons.arrow_forward_ios_outlined),
+            ),
             kHSpaceM,
           ],
         ),

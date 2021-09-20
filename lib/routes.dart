@@ -1,11 +1,9 @@
-// ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
-import 'package:tranme/presentation/feature/home/home.dart';
 
 import 'presentation/feature/activity/activity.dart';
 import 'presentation/feature/events/events.dart';
 import 'presentation/feature/flash/flash.dart';
+import 'presentation/feature/home/home.dart';
 import 'presentation/feature/news/news.dart';
 import 'presentation/feature/notification/notification.dart';
 import 'presentation/feature/onboard/onboard.dart';
