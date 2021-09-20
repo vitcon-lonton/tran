@@ -23,6 +23,9 @@ class MyApp extends StatelessWidget {
         primaryColorLight: kColorAccentBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         // textTheme: TextTheme(),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(elevation: MaterialStateProperty.all<double>(0)),
+        ),
         appBarTheme: AppBarTheme(
           elevation: 0,
           centerTitle: true,

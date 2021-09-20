@@ -519,8 +519,6 @@ class PayDone extends StatelessWidget {
                       child: const Text('Done'),
                       onPressed: () => Navigator.of(context).pop(true),
                       style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        shadowColor: Colors.transparent,
                         primary: Color.fromRGBO(60, 121, 230, 1),
                         textStyle: kBodyMedium.copyWith(fontSize: 18),
                         shape: RoundedRectangleBorder(

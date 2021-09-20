@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+// import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:postman_dio/postman_dio.dart';
 
@@ -26,8 +26,8 @@ void _initLogger() {
 }
 
 void _initLocalDB() {
-  final storage = FlutterSecureStorage();
-  injector.registerLazySingleton<FlutterSecureStorage>(() => storage);
+  // final storage = FlutterSecureStorage();
+  // injector.registerLazySingleton<FlutterSecureStorage>(() => storage);
 }
 // injector.registerSingleton<NetWorkMode>(NetWorkMode(mode: buildMode));
 // injector.registerSingleton<CustomInterceptors>(CustomInterceptors());

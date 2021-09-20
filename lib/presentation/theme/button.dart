@@ -21,7 +21,6 @@ class WSubmitBtn extends StatelessWidget {
         child: child,
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          elevation: 0,
           textStyle: kBTNTitle,
           // primary: kColorAccentBlue,
           shadowColor: Colors.transparent,

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'presentation/feature/activity/activity.dart';
@@ -19,7 +20,7 @@ import 'presentation/feature/wallet/wallet.dart';
 class Routes {
   Routes._();
 
-  static const String initRoute = home;
+  static const String initRoute = flash;
 
   static const home = '/';
   static const flash = '/flash';
@@ -200,6 +201,7 @@ class Routes {
     // page = MyCartOrderPage();
     // page = SendGiftPage();
 
-    return MaterialPageRoute(builder: (_) => page, settings: settings);
+    return CupertinoPageRoute(builder: (_) => page, settings: settings);
+    // return MaterialPageRoute(builder: (_) => page, settings: settings);
   }
 }

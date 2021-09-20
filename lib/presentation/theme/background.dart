@@ -29,8 +29,8 @@ class Background extends StatelessWidget {
     return Container(
       child: Stack(
         children: [
-          if (gradient) Positioned(left: 0, top: -20, child: kImgBGGRD),
-          if (background) Positioned(left: 0, top: -20, child: kImgBG),
+          if (gradient) Positioned(left: 0, top: 0, right: 0, child: kImgBGGRD),
+          if (background) Positioned(left: 0, top: 0, right: 0, child: kImgBG),
           child,
         ],
       ),

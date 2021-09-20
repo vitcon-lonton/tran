@@ -58,9 +58,8 @@ class NotificationTile extends StatelessWidget {
                       child: Text('Accept'),
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        textStyle: kBodyMedium.copyWith(fontSize: 12),
                         shadowColor: Colors.transparent,
+                        textStyle: kBodyMedium.copyWith(fontSize: 12),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(6)),
                         ),
