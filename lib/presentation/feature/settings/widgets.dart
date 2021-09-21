@@ -40,10 +40,9 @@ class UserSettings extends StatelessWidget {
                         color: primaryColor,
                         fontWeight: FontWeight.w400)),
                 kHSpaceXXS,
-                const Icon(
-                  Icons.keyboard_arrow_down_sharp,
-                  size: 20,
-                )
+                const RotatedBox(
+                    quarterTurns: 1,
+                    child: Icon(Icons.arrow_forward_ios_outlined)),
               ],
             ),
           ),
