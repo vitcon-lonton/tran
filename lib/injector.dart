@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 // import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
-import 'package:postman_dio/postman_dio.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import 'env_config.dart';
 
@@ -22,7 +22,15 @@ void _initNetWork({required Mode mode}) {
 }
 
 void _initLogger() {
-  injector<Dio>().interceptors..add(PostmanDioLogger(enablePrint: true));
+  final logger = PrettyDioLogger(
+      requestHeader: true,
+      requestBody: true,
+      responseBody: true,
+      responseHeader: true,
+      error: true,
+      compact: true,
+      maxWidth: 90);
+  injector<Dio>().interceptors..add(logger);
 }
 
 void _initLocalDB() {

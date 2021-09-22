@@ -32,21 +32,19 @@ dependencies:
   dio: ^4.0.0
   get_it: ^7.1.4
   kt_dart: ^0.9.1
-  postman_dio: ^1.0.2
   flutter_bloc: ^7.1.0
   cupertino_icons: ^1.0.2
   json_annotation: ^4.1.0
   dotted_border: ^2.0.0+1
   freezed_annotation: ^0.14.3
+  retrofit: any
+  injectable: ^1.5.0
+  pretty_dio_logger: any
   # flutter_secure_storage: ^4.2.1
   dartz: ^0.10.0-nullsafety.2
-  package_info: ^2.0.2
   # smooth_page_indicator: ^1.0.0+2
   introduction_screen: ^2.1.0
   # sign_in_with_apple: ^3.0.0
-  # persistent_bottom_nav_bar: ^4.0.2
-  # credit_card_input_form: ^2.3.0
-  # flutter_credit_card: ^2.0.0
   charts_flutter:
     git:
       url: git://github.com/google/charts.git
@@ -67,6 +65,7 @@ dev_dependencies:
   freezed: ^0.14.4
   build_runner: ^2.0.5
   json_serializable: ^5.0.0
+  retrofit_generator: any
 
 dependency_overrides:
   async: ^2.8.1

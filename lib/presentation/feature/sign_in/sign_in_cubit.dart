@@ -1,7 +1,7 @@
 part of 'sign_in.dart';
 
 @freezed
-abstract class SignInState with _$SignInState {
+class SignInState with _$SignInState {
   SignInState._();
   factory SignInState({
     Email? email,
