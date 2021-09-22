@@ -14,14 +14,18 @@ class UserProfilePage extends StatelessWidget {
           IconButton(
             icon: kIcQR,
             onPressed: () {
-              Navigator.of(context).pushNamed(Routes.profileQRCode);
+              // Navigator.of(context).pushNamed(Routes.profileQRCode);
+              Modular.to.pushNamed('/edit');
+              // Navigator.of(context).pushNamed('/user/edit');
             },
           ),
         ],
       ),
       bottomNavigationBar: BottomNav.submit(
         child: Text('Edit Profile'),
-        onPressed: () => Navigator.of(context).pushNamed(Routes.editProfile),
+        // onPressed: () => Modular.to.pushNamed('/edit'),
+        onPressed: () => Modular.to.pushNamed('./edit/'),
+        // onPressed: () => Navigator.of(context).pushNamed(Routes.editProfile),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: kSpaceM),

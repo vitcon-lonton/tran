@@ -35,10 +35,11 @@ class _ProfileTile extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       child: ListTile(
-        onTap: () => Navigator.of(
-          context,
-          rootNavigator: true,
-        ).pushNamed(Routes.userProfile),
+        onTap: () => Modular.to.pushNamed('/user'),
+        // onTap: () => Navigator.of(
+        //   context,
+        //   rootNavigator: true,
+        // ).pushNamed(Routes.userProfile),
         subtitle: Text('support@3co.network'),
         title: Text('David Tran',
             style: kTitleBold.copyWith(fontSize: 18, color: primaryColor)),
