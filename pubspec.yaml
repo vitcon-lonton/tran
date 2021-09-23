@@ -32,7 +32,7 @@ dependencies:
   dio: ^4.0.0
   get_it: ^7.1.4
   kt_dart: ^0.9.1
-  flutter_bloc: ^7.1.0
+  flutter_bloc: ^7.3.0
   cupertino_icons: ^1.0.2
   json_annotation: ^4.1.0
   dotted_border: ^2.0.0+1
@@ -66,6 +66,7 @@ dev_dependencies:
   build_runner: ^2.0.5
   json_serializable: ^5.0.0
   retrofit_generator: any
+  mockito: any
 
 dependency_overrides:
   async: ^2.8.1

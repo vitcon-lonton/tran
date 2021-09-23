@@ -12,9 +12,9 @@ class BaseResponse<T> {
   final String? responseMessage;
   final T? responseData;
 
+  bool get valid => responseCode == 2000;
+
   factory BaseResponse.fromJson(
           Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
       _$BaseResponseFromJson(json, fromJsonT);
-
-  bool get valid => (responseCode ?? 0) == 2000;
 }
