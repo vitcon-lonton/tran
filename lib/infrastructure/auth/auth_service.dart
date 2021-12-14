@@ -1,9 +1,7 @@
 /* spell-checker: disable */
 part of 'auth.dart';
 
-@RestApi(
-  baseUrl: 'http://ec2-18-223-3-103.us-east-2.compute.amazonaws.com:4242/api/',
-)
+@RestApi(baseUrl: baseUrl)
 abstract class AuthService {
   factory AuthService(Dio dio, {String baseUrl}) = _AuthService;
 

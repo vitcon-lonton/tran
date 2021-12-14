@@ -11,6 +11,8 @@ class Email extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
+  factory Email.pure() => Email('');
+
   factory Email(String input) {
     return Email._(validateStringNotEmpty(input).flatMap(validateEmailAddress));
   }
@@ -39,6 +41,8 @@ class Password extends ValueObject<String> {
 
   @override
   final Either<ValueFailure<String>, String> value;
+
+  factory Password.pure() => Password('');
 
   factory Password(String input) {
     return Password._(validateStringNotEmpty(input).flatMap((v) {

@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
         // navBarHeight: 70,
         onWillPop: onPop,
         controller: _controller,
-        bottomScreenMargin: 60,
+        // bottomScreenMargin: 40,
         navBarStyle: NavBarStyle.simple,
         popActionScreens: PopActionScreensType.all,
         // backgroundColor: Colors.black45,

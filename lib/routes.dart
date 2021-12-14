@@ -20,7 +20,7 @@ import 'presentation/feature/wallet/wallet.dart';
 class Routes {
   Routes._();
 
-  static const String initRoute = flash;
+  static const String initRoute = login;
 
   static const home = '/';
   static const flash = '/flash';

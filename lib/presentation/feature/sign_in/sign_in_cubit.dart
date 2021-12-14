@@ -2,10 +2,13 @@ part of 'sign_in.dart';
 
 @freezed
 class SignInState with _$SignInState {
-  SignInState._();
+  const SignInState._();
+
   factory SignInState({
-    Email? email,
-    Password? password,
+    required Email email,
+    required Password password,
+    @Default(false) bool remember,
+    @Default(false) bool displayPassword,
     @Default(AsyncStatus.idle()) AsyncStatus status,
   }) = _SignInState;
 
@@ -18,11 +21,10 @@ class SignInState with _$SignInState {
     // return (emailError != null && passwordError != null);
   }
 
-  factory SignInState.init() {
-    return SignInState().idle();
+  bool get showErrorMessages => true;
 
-    // .copyWith(email: const Email.pure())
-    // .copyWith(password: const Password.pure());
+  factory SignInState.init() {
+    return SignInState(email: Email.pure(), password: Password.pure());
   }
 
   SignInState busy() => copyWith(status: AsyncStatus.busy());
@@ -31,52 +33,66 @@ class SignInState with _$SignInState {
   SignInState complete() => copyWith(status: AsyncStatus.complete());
 }
 
+@injectable
 class SignInCubit extends Cubit<SignInState> {
   // final _loginApple = sl<LoginApple>();
   // final _loginEmail = sl<LoginEmail>();
   // final _loginGoogle = sl<LoginGoogle>();
   // final _loginFacebook = sl<LoginFacebook>();
 
-  SignInCubit() : super(SignInState.init());
+  final IAuthFacade authFacade;
 
-  // get _emailParams {
-  //   return LoginEmailParams(email: state.email, password: state.password);
-  // }
+  SignInCubit(this.authFacade) : super(SignInState.init());
 
-  emailChanged(String value) => emit(state.copyWith(email: Email(value)));
-
-  pwChanged(String value) => emit(state.copyWith(password: Password(value)));
-
-  emailSubmitted() async {
-    if (state.valid) {
-      emit(state.busy());
-      Future.delayed(Duration(seconds: 1));
-      emit(state.complete());
-
-      // emit((await _loginEmail(_emailParams)).fold((credential) {
-      //   return state.complete();
-      // }, (f) => state.failed()));
-    }
+  rememberChanged(bool value) {
+    emit(state.copyWith(remember: value));
   }
 
-  // facebookSubmitted() async {
-  //   emit(state.busy());
-  //   emit((await _loginFacebook(NoParams())).fold((credential) {
-  //     return state.complete();
-  //   }, (f) => state.failed()));
-  // }
+  emailChanged(String value) {
+    emit(state.copyWith(email: Email(value)));
+  }
 
-  // googleSubmitted() async {
-  //   emit(state.busy());
-  //   emit((await _loginGoogle(NoParams())).fold((credential) {
-  //     return state.complete();
-  //   }, (f) => state.failed()));
-  // }
+  passwordChanged(String value) {
+    emit(state.copyWith(password: Password(value)));
+  }
 
-  // appleSubmitted() async {
-  //   emit(state.busy());
-  //   emit((await _loginApple(NoParams())).fold((credential) {
-  //     return state.complete();
-  //   }, (f) => state.failed()));
-  // }
+  displayPasswordChanged(bool value) {
+    emit(state.copyWith(displayPassword: value));
+  }
+
+  emailSubmitted() async {
+    emit(state.busy());
+    await Future.delayed(Duration(seconds: 1));
+    emit(state.complete());
+    // if (state.valid) {
+    //   emit(state.busy());
+    //   emit(state.complete());
+
+    //   // emit((await _loginEmail(_emailParams)).fold((credential) {
+    //   //   return state.complete();
+    //   // }, (f) => state.failed()));
+    // }
+  }
 }
+
+
+// facebookSubmitted() async {
+//   emit(state.busy());
+//   emit((await _loginFacebook(NoParams())).fold((credential) {
+//     return state.complete();
+//   }, (f) => state.failed()));
+// }
+
+// googleSubmitted() async {
+//   emit(state.busy());
+//   emit((await _loginGoogle(NoParams())).fold((credential) {
+//     return state.complete();
+//   }, (f) => state.failed()));
+// }
+
+// appleSubmitted() async {
+//   emit(state.busy());
+//   emit((await _loginApple(NoParams())).fold((credential) {
+//     return state.complete();
+//   }, (f) => state.failed()));
+// }

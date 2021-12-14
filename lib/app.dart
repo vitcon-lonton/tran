@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:tranme/routes.dart';
 
 import 'presentation/theme/theme.dart';
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tran ME',
       // showPerformanceOverlay: true,
+      builder: EasyLoading.init(),
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.initRoute,
       onGenerateRoute: Routes.onGenerateRoute,

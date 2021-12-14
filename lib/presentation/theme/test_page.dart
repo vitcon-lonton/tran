@@ -44,8 +44,14 @@ class TestPage extends StatelessWidget {
                 ],
               ),
               kVSpaceM,
-              Row(children: [WCheckbox(value: true), Text('Promotion text')]),
-              Row(children: [WCheckbox(value: false), Text('Promotion text')]),
+              Row(children: [
+                WCheckbox(value: true, onChanged: null),
+                Text('Promotion text')
+              ]),
+              Row(children: [
+                WCheckbox(value: false, onChanged: null),
+                Text('Promotion text')
+              ]),
               kVSpaceM,
               GenderSelector(),
               kVSpaceM,

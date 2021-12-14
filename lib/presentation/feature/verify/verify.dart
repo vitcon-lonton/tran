@@ -76,7 +76,7 @@ class VerifyPage extends StatelessWidget {
               Row(
                 children: [
                   kHSpaceS,
-                  WCheckbox(value: true),
+                  WCheckbox(value: true, onChanged: null),
                   const Text('Terms and conditions'),
                 ],
               ),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:tranme/injector.dart' as di;
+import 'package:injectable/injectable.dart';
 
 import 'app.dart';
-import 'env_config.dart';
+import 'injection.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  di.initializeDependencies(mode: EnvConfig.mode);
+  configureInjection(Environment.prod);
+  // configureInjection(EnvConfig.APP_MODE);
   runApp(const MyApp());
 }

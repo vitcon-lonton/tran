@@ -101,7 +101,7 @@ class WTextInput extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final TextEditingController? controller;
-  final void Function(String?)? onChanged;
+  final void Function(String)? onChanged;
   final VoidCallback? onTap;
   final VoidCallback? onEditingComplete;
   final String? Function(String?)? validator;

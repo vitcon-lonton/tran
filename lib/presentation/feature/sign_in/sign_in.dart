@@ -5,9 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
+import 'package:tranme/domain/auth/auth.dart';
 import 'package:tranme/domain/core/entities.dart';
 import 'package:tranme/domain/core/value_objects.dart';
+import 'package:tranme/injection.dart';
 
 import 'package:tranme/presentation/theme/theme.dart';
 import 'package:tranme/routes.dart';

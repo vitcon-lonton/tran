@@ -1,6 +1,11 @@
 part of 'sign_in.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
   Widget padding(Widget child) {
     return Padding(
       child: child,
@@ -24,7 +29,10 @@ class SignInPage extends StatelessWidget {
             ),
             kVSpaceL,
             kVSpaceL,
-            BlocProvider(create: (_) => SignInCubit(), child: SignInForm()),
+            BlocProvider(
+              child: SignInForm(),
+              create: (_) => getIt<SignInCubit>(),
+            ),
             kVSpaceL,
             padding(
               Column(
